@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Latihan Asesmen Sumatif · Kelas XII · Bab 1 TIK dan Isim Tafdhil</title>
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF0FF; --dot:#D3D8F7; --card:#FFFFFF; --ink:#14122E; --mut:#4F5273; --line:#14122E; --shadow:#14122E;
+  --y:#FFC933; --c:#FF6B5A; --m:#1FBF98; --s:#4CA8FF; --p:#FF8FC4;
+  --y-s:#FFF0BD; --c-s:#FFE1DB; --m-s:#D0F5EA; --s-s:#DDE8FF; --p-s:#FFDDEC;
+  --ok:#0B7F58; --ok-s:#D2F4E5; --no:#B93223; --no-s:#FFE1DB;
+  --font-h:'Bricolage Grotesque','DM Sans',system-ui,sans-serif; --font-b:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-ar:'Amiri','Noto Naskh Arabic','Traditional Arabic',serif; --font-k:'Reem Kufi','Amiri',serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E0D24; --dot:#1B1A3D; --card:#171638; --ink:#EDEBFF; --mut:#A9ABD0; --line:#8486B8; --shadow:#000;
+    --y-s:#4A3C10; --c-s:#4F2622; --m-s:#0F4034; --s-s:#16345C; --p-s:#4F2441;
+    --ok:#3DDC9B; --ok-s:#0F4034; --no:#FF9183; --no-s:#4F2622; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E0D24; --dot:#1B1A3D; --card:#171638; --ink:#EDEBFF; --mut:#A9ABD0; --line:#8486B8; --shadow:#000;
+  --y-s:#4A3C10; --c-s:#4F2622; --m-s:#0F4034; --s-s:#16345C; --p-s:#4F2441;
+  --ok:#3DDC9B; --ok-s:#0F4034; --no:#FF9183; --no-s:#4F2622; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-b);font-size:16px;line-height:1.6;
+  background-image:radial-gradient(var(--dot) 1.6px,transparent 1.7px);background-size:22px 22px;
+  padding:0 max(14px,env(safe-area-inset-right)) env(safe-area-inset-bottom) max(14px,env(safe-area-inset-left));min-height:100vh}
+.wrap{max-width:860px;margin:0 auto}
+h1,h2,h3{font-family:var(--font-h);line-height:1.15;margin:0;letter-spacing:-.01em}
+p{margin:0 0 .7em}
+.ar{font-family:var(--font-ar);direction:rtl;unicode-bidi:isolate;line-height:2}
+p .ar,li .ar,.why .ar{font-size:1.18em;line-height:1.7}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--s);outline-offset:2px;border-radius:8px}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;margin:0 -14px;padding:10px 14px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:2.5px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:10px}
+.brand{display:flex;align-items:center;gap:8px;font:800 15px/1.1 var(--font-h);min-width:0}
+.brand i{width:30px;height:30px;border:2.5px solid var(--line);border-radius:9px;background:var(--y);display:grid;place-items:center;flex:none;box-shadow:2px 2px 0 var(--shadow)}
+.brand span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sp{flex:1}
+.pill{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:4px 12px;border:2px solid var(--line);border-radius:999px;background:var(--card);font-weight:700;font-size:13.5px}
+.pill b{font-family:var(--font-h)}
+button.pill:hover{background:var(--y-s)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:8px 18px;border:2.5px solid var(--line);border-radius:13px;background:var(--card);font-weight:700;box-shadow:3px 3px 0 var(--shadow);transition:transform .12s,box-shadow .12s,background .12s}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--shadow)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--shadow)}
+.btn.pri{background:var(--y);color:#14122E}
+.btn.go{background:var(--m);color:#06231B}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none;box-shadow:3px 3px 0 var(--shadow)}
+.card{background:var(--card);border:2.5px solid var(--line);border-radius:20px;box-shadow:5px 5px 0 var(--shadow);padding:16px}
+.tag{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border:2px solid var(--line);border-radius:999px;background:var(--card);font:700 12.5px/1.5 var(--font-b)}
+.tag .ar{font-size:15px;line-height:1.5}
+.tag.n{background:var(--y);color:#14122E}
+.note{font-size:13.5px;color:var(--mut)}
+
+/* HOME */
+.ticket{position:relative;margin:22px 0 18px;background:var(--card);border:2.5px solid var(--line);border-radius:22px;box-shadow:6px 6px 0 var(--shadow);display:grid;grid-template-columns:1fr 150px;overflow:hidden}
+.ticket .main{padding:20px 20px 18px}
+.ticket .stub{border-inline-start:3px dashed var(--line);padding:16px 12px;background:var(--y);color:#14122E;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:2px}
+.ticket .stub b{font:800 44px/1 var(--font-h)}
+.ticket .stub span{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.ticket::before,.ticket::after{content:"";position:absolute;inset-inline-end:131px;width:22px;height:22px;border-radius:50%;background:var(--bg);border:2.5px solid var(--line)}
+.ticket::before{top:-12px}.ticket::after{bottom:-12px}
+.kick{display:inline-block;font:700 12px/1 var(--font-b);letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--bg);padding:6px 10px;border-radius:999px}
+.ticket h1{font-family:var(--font-k);font-weight:700;font-size:clamp(30px,6.4vw,46px);line-height:1.5;direction:rtl;margin:8px 0 0}
+.ticket .ar2{font-family:var(--font-ar);direction:rtl;font-size:20px;color:var(--mut);line-height:1.7}
+.ticket .idn{margin:6px 0 0;color:var(--mut);font-size:14.5px}
+.route{display:flex;align-items:center;gap:0;margin-top:14px}
+.route .dot{width:14px;height:14px;border-radius:50%;border:2.5px solid var(--line);background:var(--y)}
+.route .dot:nth-child(3){background:var(--c)}.route .dot:nth-child(5){background:var(--m)}
+.route .ln{flex:1;border-top:3px dashed var(--line);margin:0 6px}
+.gates{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 20px}
+.gate{position:relative;display:flex;flex-direction:column;gap:8px;text-align:start;padding:16px;border:2.5px solid var(--line);border-radius:20px;background:var(--card);box-shadow:5px 5px 0 var(--shadow);transition:transform .12s,box-shadow .12s}
+.gate:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--shadow)}
+.gate .hd{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.gate .gl{font:800 12px/1 var(--font-b);letter-spacing:.1em;text-transform:uppercase;padding:6px 9px;border:2px solid var(--line);border-radius:8px;color:#14122E}
+.gate.y .gl{background:var(--y)}.gate.c .gl{background:var(--c)}.gate.m .gl{background:var(--m)}
+.gate .an{font:700 25px/1.5 var(--font-k);direction:rtl;text-align:right}
+.gate .at{font-family:var(--font-ar);font-size:20px;direction:rtl;text-align:right;line-height:1.6;color:var(--mut)}
+.gate .id{font-size:13.5px;color:var(--mut)}
+.gate .mini{height:10px;border:2px solid var(--line);border-radius:99px;background:var(--bg);overflow:hidden}
+.gate .mini i{display:block;height:100%;width:0;background:var(--m);transition:width .35s}
+.gate.y .mini i{background:var(--y)}.gate.c .mini i{background:var(--c)}
+.gate .st{font-size:13px;font-weight:700;display:flex;justify-content:space-between}
+.how{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 18px}
+.how div{padding:12px;border:2px solid var(--line);border-radius:14px;background:var(--card);font-size:14px;line-height:1.45}
+.how b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--bg);font:800 14px/1 var(--font-h);margin-bottom:6px}
+.foot{padding:6px 0 40px}
+
+/* QUIZ */
+.qhead{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:18px 0 12px}
+.qhead h2{font-size:20px}
+.qhead .ar{font-size:22px;line-height:1.5}
+.sec-badge{padding:5px 10px;border:2px solid var(--line);border-radius:10px;font:800 12px/1 var(--font-b);letter-spacing:.08em;text-transform:uppercase;color:#14122E}
+.sec-badge.y{background:var(--y)}.sec-badge.c{background:var(--c)}.sec-badge.m{background:var(--m)}
+.bar{height:12px;border:2px solid var(--line);border-radius:99px;background:var(--card);overflow:hidden;margin:0 0 12px}
+.bar i{display:block;height:100%;background:var(--ink);width:0;transition:width .3s}
+.map{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin:0 0 16px}
+.mb{min-height:38px;border:2px solid var(--line);border-radius:10px;background:var(--card);font:700 13.5px/1 var(--font-h);position:relative}
+.mb[data-s="ok"]{background:var(--ok-s);color:var(--ok)}
+.mb[data-s="no"]{background:var(--no-s);color:var(--no)}
+.mb[data-s="pick"]{background:var(--y-s)}
+.mb[aria-current="true"]{outline:3px solid var(--s);outline-offset:1px}
+.qtop{scroll-margin-top:76px}
+.qtags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.stim{border:2px dashed var(--line);border-radius:14px;background:var(--s-s);padding:10px 14px;margin:0 0 12px}
+.stim .lbl{font:700 12px/1 var(--font-b);letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin-bottom:2px;display:flex;align-items:center;gap:6px}
+.stim .ar{font-size:21px;line-height:2.05;text-align:right}
+.qtext{font-family:var(--font-ar);font-size:27px;line-height:1.95;direction:rtl;text-align:right;font-weight:700;margin:4px 0 6px}
+.inst{display:inline-flex;align-items:center;gap:8px;direction:rtl;margin:0 0 12px;padding:2px 12px;border-radius:99px;background:var(--y);color:#14122E;border:2px solid var(--line);font:700 19px/1.9 var(--font-ar)}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:12px;direction:rtl;text-align:right;width:100%;min-height:58px;padding:8px 14px;border:2.5px solid var(--line);border-radius:15px;background:var(--card);box-shadow:3px 3px 0 var(--shadow);transition:transform .1s,box-shadow .1s,background .12s}
+.opt:hover:not([disabled]){transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--shadow)}
+.opt .mk{flex:none;display:grid;place-items:center;width:36px;height:36px;border:2.5px solid var(--line);border-radius:50%;font:700 20px/1 var(--font-ar);background:var(--bg)}
+.opt.check .mk{border-radius:9px}
+.opt .ot{flex:1;font:400 22px/1.8 var(--font-ar)}
+.opt[aria-checked="true"]{background:var(--y-s);box-shadow:1px 1px 0 var(--shadow);transform:translate(2px,2px)}
+.opt[aria-checked="true"] .mk{background:var(--y);color:#14122E}
+.opt[disabled]{cursor:default}
+.opt.ok{background:var(--ok-s);border-color:var(--ok)}
+.opt.ok .mk{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.no{background:var(--no-s);border-color:var(--no)}
+.opt.no .mk{background:var(--no);color:#fff;border-color:var(--no)}
+.opt.miss{background:var(--card);border:2.5px dashed var(--ok)}
+.opt.miss .mk{border-color:var(--ok);color:var(--ok)}
+.opt .res{flex:none;font:800 13px/1 var(--font-b);padding:4px 8px;border-radius:99px;background:var(--ink);color:var(--bg);direction:ltr}
+.tf{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tf .opt{min-height:84px;justify-content:center;flex-direction:column;gap:2px;text-align:center}
+.tf .opt .ot{flex:none;font:700 30px/1.5 var(--font-k);text-align:center}
+.tf .opt .mk{display:none}
+.tf .opt small{font:700 13px/1 var(--font-b);color:var(--mut)}
+.tf .opt[data-k="T"]:not([aria-checked="true"]):not(.ok):not(.no):not(.miss){background:color-mix(in srgb,var(--m) 14%,var(--card))}
+.tf .opt[data-k="F"]:not([aria-checked="true"]):not(.ok):not(.no):not(.miss){background:color-mix(in srgb,var(--c) 14%,var(--card))}
+.warn{min-height:22px;margin:8px 0 0;font-size:14px;font-weight:700;color:var(--no)}
+.acts{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:6px}
+.acts .sp{flex:1}
+.cnt{font-size:13.5px;font-weight:700;color:var(--mut)}
+.fb{margin-top:16px;border:2.5px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card);box-shadow:4px 4px 0 var(--shadow);animation:pop .25s ease-out}
+@keyframes pop{from{transform:translateY(8px);opacity:0}to{transform:none;opacity:1}}
+.fb .fh{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:2.5px solid var(--line)}
+.fb.ok .fh{background:var(--ok-s);color:var(--ok)}
+.fb.no .fh{background:var(--no-s);color:var(--no)}
+.fb .fh .ar{font:700 24px/1.6 var(--font-k)}
+.fb .fh small{font-weight:700;font-size:13.5px}
+.fb .fb-b{padding:12px 14px 14px}
+.fb .key{margin:0 0 10px;padding:8px 12px;border-radius:12px;background:var(--ok-s);border:2px solid var(--ok)}
+.fb .key .lbl{font:700 12px/1 var(--font-b);letter-spacing:.06em;text-transform:uppercase;color:var(--ok);margin-bottom:2px}
+.fb .key .ar{font-size:21px;line-height:1.9;text-align:right;display:block}
+.fb .key .ar+.ar{border-top:1px dotted var(--ok)}
+.fb h4{margin:0 0 4px;font:800 13px/1 var(--font-b);letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+.why{font-size:15.5px;line-height:1.75}
+.nav{display:flex;gap:10px;margin-top:14px}
+.nav .btn{flex:1}
+
+/* RESULT */
+.rcard{display:grid;grid-template-columns:170px 1fr;gap:18px;align-items:center;margin-top:18px}
+.ring{position:relative;width:160px;height:160px}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring .bg{stroke:var(--dot)}.ring .fg{stroke:var(--m);stroke-linecap:round;transition:stroke-dashoffset 1s cubic-bezier(.2,.8,.2,1)}
+.ring .num{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font:800 42px/1 var(--font-h)}
+.ring .num small{display:block;font:700 12px/1.4 var(--font-b);color:var(--mut)}
+.rank{display:inline-flex;align-items:center;gap:10px;margin:6px 0;padding:2px 14px;border:2.5px solid var(--line);border-radius:14px;background:var(--y);color:#14122E}
+.rank .ar{font:700 26px/1.7 var(--font-k)}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+.sc{border:2.5px solid var(--line);border-radius:16px;padding:12px;background:var(--card)}
+.sc .ar{font:700 20px/1.6 var(--font-k);display:block;text-align:right}
+.sc b{font:800 28px/1.1 var(--font-h)}
+.sc small{color:var(--mut);font-weight:700}
+.bars{display:grid;gap:10px}
+.tb{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:end}
+.tb .nm{display:flex;flex-direction:column}
+.tb .nm .ar{font-size:18px;line-height:1.5}
+.tb .nm span:last-child{font-size:12.5px;color:var(--mut)}
+.tb .v{font-weight:700;font-size:14px}
+.tb .tr{grid-column:1/-1;height:11px;border:2px solid var(--line);border-radius:99px;background:var(--bg);overflow:hidden}
+.tb .tr i{display:block;height:100%;background:var(--m)}
+.tb.low .tr i{background:var(--c)}
+.racts{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.copybox{width:100%;min-height:150px;border:2.5px solid var(--line);border-radius:14px;padding:10px;font:14px/1.5 var(--font-b);background:var(--card);color:var(--ink)}
+.h2{font-size:22px;margin:22px 0 10px}
+
+@media (max-width:640px){
+  body{font-size:15.5px}
+  .ticket{grid-template-columns:1fr}
+  .ticket .stub{border-inline-start:0;border-top:3px dashed var(--line);flex-direction:row;gap:12px;padding:10px}
+  .ticket .stub b{font-size:34px}
+  .ticket::before,.ticket::after{display:none}
+  .gates{grid-template-columns:1fr}
+  .how{grid-template-columns:1fr 1fr}
+  .map{grid-template-columns:repeat(10,1fr);gap:4px}
+  .mb{min-height:34px;font-size:12px;border-radius:8px}
+  .qtext{font-size:24px}
+  .opt .ot{font-size:20px}
+  .rcard{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .sgrid{grid-template-columns:1fr}
+  .brand span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ===== tambahan Kelas XII ===== */
+.pill[aria-pressed="true"]{background:var(--y);color:#14122E}
+.sw{position:relative;display:inline-flex;align-items:center;gap:10px;min-height:44px;font-weight:700;font-size:14px;cursor:pointer}
+.sw input{position:absolute;opacity:0;width:1px;height:1px}
+.sw .tg{width:46px;height:26px;border:2.5px solid var(--line);border-radius:99px;background:var(--bg);position:relative;flex:none;transition:background .15s}
+.sw .tg::after{content:"";position:absolute;top:2px;left:2px;width:17px;height:17px;border-radius:50%;background:var(--ink);transition:transform .15s}
+.sw input:checked+.tg{background:var(--m)}
+.sw input:checked+.tg::after{transform:translateX(20px)}
+.sw input:focus-visible+.tg{outline:3px solid var(--s);outline-offset:2px}
+.optrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin:0 0 16px;padding:6px 14px;border:2px dashed var(--line);border-radius:14px;background:var(--card)}
+.optrow .note{flex:1;min-width:200px}
+
+/* panel teks bacaan */
+.tp{margin:0 0 14px;border:2.5px solid var(--line);border-radius:18px;background:var(--s-s);box-shadow:4px 4px 0 var(--shadow);overflow:hidden}
+.tp .tph{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:2.5px solid var(--line);background:var(--card)}
+.tp .tph .ar{font:700 19px/1.7 var(--font-k);flex:1;text-align:right}
+.tp .tpb{max-height:min(50vh,420px);overflow:auto;padding:4px 14px 10px;-webkit-overflow-scrolling:touch}
+.tp .pr{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:8px 6px;border-bottom:1px dashed var(--line)}
+.tp .pr:last-of-type{border-bottom:0}
+.tp .pr .n{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--bg);font:800 12.5px/1 var(--font-h);margin-top:6px}
+.tp .pr .ar{font-size:21px;line-height:2.05;text-align:right}
+.tp .pr.hl{background:color-mix(in srgb,var(--y) 32%,transparent);border-radius:10px}
+.tp .tpn{margin:4px 0 0;font-size:12.5px;color:var(--mut)}
+
+/* umpan balik sebagian */
+.fb.part .fh{background:var(--y-s);color:var(--ink)}
+.mb[data-s="part"]{background:var(--y);color:#14122E}
+.sgrid.two{grid-template-columns:repeat(3,1fr)}
+.lvgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 4px}
+.lv{border:2px solid var(--line);border-radius:14px;padding:8px 10px;background:var(--card)}
+.lv .ar{font:700 18px/1.5 var(--font-k);display:block;text-align:right}
+.lv b{font:800 20px/1.2 var(--font-h)}
+.lv small{display:block;color:var(--mut);font-weight:700;font-size:12px}
+.kk{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:3px 12px;border:2px solid var(--line);border-radius:99px;font-weight:700;font-size:13.5px;background:var(--card)}
+.kk.go{background:var(--ok-s);color:var(--ok);border-color:var(--ok)}
+.kk.mid{background:var(--y-s)}
+.kk.low{background:var(--no-s);color:var(--no);border-color:var(--no)}
+.prio{border:2px dashed var(--line);border-radius:14px;padding:10px 12px;margin:10px 0 0;background:var(--y-s)}
+.prio h4{margin:0 0 4px;font:800 13px/1 var(--font-b);letter-spacing:.06em;text-transform:uppercase}
+.prio p{margin:0 0 6px;font-size:14.5px}
+.prio .acts{margin-top:4px}
+
+/* LAB */
+.labgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 20px}
+.tool{display:flex;flex-direction:column;gap:6px;text-align:start;padding:14px 16px;border:2.5px solid var(--line);border-radius:20px;background:var(--card);box-shadow:5px 5px 0 var(--shadow);transition:transform .12s,box-shadow .12s}
+.tool:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--shadow)}
+.tool .ic{display:grid;place-items:center;width:38px;height:38px;border:2.5px solid var(--line);border-radius:11px;font:800 17px/1 var(--font-h);color:#14122E}
+.tool.y .ic{background:var(--y)}.tool.c .ic{background:var(--c)}.tool.m .ic{background:var(--m)}
+.tool .an{font:700 22px/1.5 var(--font-k);direction:rtl;text-align:right}
+.tool .id{font-weight:800;font-family:var(--font-h)}
+.tool p{font-size:13.5px;color:var(--mut);margin:0;line-height:1.5}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 14px}
+.seg button{min-height:46px;padding:6px 8px;border:2.5px solid var(--line);border-radius:13px;background:var(--card);font-weight:800;font-size:14px;box-shadow:3px 3px 0 var(--shadow)}
+.seg button[aria-selected="true"]{background:var(--y);color:#14122E;transform:translate(2px,2px);box-shadow:1px 1px 0 var(--shadow)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.chip{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:2px 14px;border:2.5px solid var(--line);border-radius:99px;background:var(--card);font-weight:700;font-size:14px}
+.chip .ar{font:700 20px/1.6 var(--font-k)}
+.chip[aria-pressed="true"]{box-shadow:inset 0 0 0 2px var(--ink)}
+.chip.t{background:color-mix(in srgb,var(--y) 55%,var(--card))}
+.chip.a{background:color-mix(in srgb,var(--s) 50%,var(--card))}
+.chip.r{background:color-mix(in srgb,var(--m) 55%,var(--card))}
+.pm .seg2{padding:1px 2px;border-radius:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:opacity .2s}
+.pm .seg2.t{background:color-mix(in srgb,var(--y) 55%,transparent)}
+.pm .seg2.a{background:color-mix(in srgb,var(--s) 38%,transparent)}
+.pm .seg2.r{background:color-mix(in srgb,var(--m) 48%,transparent)}
+.pm[data-f="t"] .seg2:not(.t),.pm[data-f="a"] .seg2:not(.a),.pm[data-f="r"] .seg2:not(.r){opacity:.28}
+.pm mark.mk{background:transparent;color:inherit;border-bottom:3px solid var(--c);border-radius:0;padding:0 1px}
+.pm.nomk mark.mk{border-bottom-color:transparent}
+.pm .pr{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.pm .pr .n{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--bg);font:800 12.5px/1 var(--font-h);margin-top:6px}
+.pm .pr .ar{font-size:21px;line-height:2.15;text-align:right}
+.pm .ttl{font:700 24px/1.8 var(--font-k);direction:rtl;text-align:right;margin:0 0 4px}
+.info{border:2px solid var(--line);border-radius:14px;padding:10px 14px;background:var(--card);margin:0 0 12px;font-size:14.5px}
+.info h4{margin:0 0 2px;font:800 13px/1.2 var(--font-b);letter-spacing:.05em;text-transform:uppercase;color:var(--mut)}
+.info p{margin:0 0 6px}
+.mkl{display:flex;flex-wrap:wrap;gap:6px 14px;margin:6px 0 0;font-size:13.5px}
+.mkl span.ar{font-size:18px;line-height:1.7}
+.big{font:700 clamp(24px,5.4vw,32px)/1.9 var(--font-ar);direction:rtl;text-align:center;padding:12px 8px;border:2.5px dashed var(--line);border-radius:16px;background:var(--s-s);margin:0 0 12px}
+.ynrow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0}
+.ynrow .btn{min-height:54px;font-size:16px}
+.qline{font-weight:700;margin:0 0 8px}
+.qline .ar{font-size:1.2em}
+.steps{display:flex;gap:6px;margin:0 0 12px}
+.steps i{flex:1;height:10px;border:2px solid var(--line);border-radius:99px;background:var(--card)}
+.steps i.on{background:var(--y)}.steps i.done{background:var(--ink)}
+.res4{border:2.5px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card);margin:8px 0}
+.res4 .rh{padding:8px 14px;border-bottom:2.5px solid var(--line);background:var(--m);color:#06231B;font:800 17px/1.4 var(--font-h)}
+.res4 .rb{padding:10px 14px;font-size:15px}
+.res4 .ex{display:block;font:400 21px/1.9 var(--font-ar);direction:rtl;text-align:right}
+.dr4{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.dr4 .btn{min-height:50px;flex-direction:column;gap:0;font-size:13.5px;line-height:1.3;padding:6px 8px}
+.dr4 .btn .ar{font:700 19px/1.5 var(--font-k)}
+.dr4 .btn.ok{background:var(--ok-s);border-color:var(--ok)}
+.dr4 .btn.no{background:var(--no-s);border-color:var(--no)}
+.dr4 .btn.miss{border-style:dashed;border-color:var(--ok)}
+.scoreline{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:8px 0;font-weight:700;font-size:14px}
+.verb{font:700 clamp(40px,10vw,60px)/1.6 var(--font-k);direction:rtl;text-align:center;border:2.5px solid var(--line);border-radius:18px;background:var(--y-s);box-shadow:4px 4px 0 var(--shadow);margin:0 0 12px;padding:8px}
+.syr{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.syr .btn{justify-content:flex-start;text-align:start;min-height:56px;font-size:13.5px;line-height:1.3;padding:6px 10px;gap:10px}
+.syr .btn .ar{font:700 18px/1.5 var(--font-k);flex:none}
+.syr .btn.ok{background:var(--ok-s);border-color:var(--ok)}
+.syr .btn.no{background:var(--no-s);border-color:var(--no)}
+.fbx{margin:10px 0;padding:10px 14px;border:2.5px solid var(--line);border-radius:14px;background:var(--card);font-size:15px}
+.fbx.ok{background:var(--ok-s);border-color:var(--ok)}
+.fbx.no{background:var(--no-s);border-color:var(--no)}
+.fbx b:first-child{display:block;margin-bottom:2px}
+@media (max-width:640px){
+  .labgrid{grid-template-columns:1fr}
+  .lvgrid{grid-template-columns:1fr 1fr 1fr}
+  .syr{grid-template-columns:1fr}
+  .seg button{font-size:12.5px}
+  .tp .tpb{max-height:46vh}
+}
+
+.tag b{flex:none;white-space:nowrap}
+.tag.ind{border-radius:16px;flex-wrap:wrap}
+
+</style>
+</head>
+<body>
+<a class="sr" href="#main">Lewati ke konten</a>
+<header class="top"><div class="wrap">
+  <div class="brand"><i aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#14122E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10a11 11 0 0 1 15 0"/><path d="M8 13.4a6 6 0 0 1 8 0"/><circle cx="12" cy="17.6" r="1.2" fill="#14122E"/></svg></i><span>Latihan Asesmen · Kelas XII</span></div>
+  <div class="sp"></div>
+  <button class="pill" id="b-home" type="button" hidden>Beranda</button>
+  <button class="pill" id="b-res" type="button" aria-label="Lihat ringkasan skor">Skor <b id="b-sc">0/60</b></button>
+  <button class="pill" id="themebtn" type="button" aria-label="Ganti tema terang atau gelap">Tema</button>
+</div></header>
+
+<main class="wrap" id="main">
+  <!-- BERANDA -->
+  <section id="v-home" aria-label="Beranda latihan">
+    <div class="ticket">
+      <div class="main">
+        <span class="kick">Akses sumatif · Kelas XII · Bab 1</span>
+        <h1 lang="ar">تَدْرِيبَاتُ التَّقْوِيمِ الْخِتَامِيِّ</h1>
+        <div class="ar2" lang="ar">الصَّفُّ الثَّانِي عَشَرَ · تِكْنُولُوجِيَا الْإِعْلَامِ وَالِاتِّصَالِ</div>
+        <p class="idn">Kelas XII · Bab 1 Teknologi Informasi dan Komunikasi: fahmul maqru' teks argumentatif dan tarkib isim tafdhil. Perintah, soal, dan pilihan jawaban berbahasa Arab. Setiap nomor punya kunci dan penjelasan.</p>
+        <div class="route" aria-hidden="true"><span class="dot"></span><span class="ln"></span><span class="dot"></span><span class="ln"></span><span class="dot"></span></div>
+      </div>
+      <div class="stub"><b>60</b><span>soal latihan</span><span>3 pola</span></div>
+    </div>
+
+    <h2 class="h2" style="margin-top:6px">Pilih node</h2>
+    <div class="gates" id="gates"></div>
+
+    <div class="optrow">
+      <label class="sw"><input type="checkbox" id="mixopt" checked><span class="tg" aria-hidden="true"></span><span>Acak urutan pilihan jawaban</span></label>
+      <span class="note">Matikan bila ingin urutan pilihan (A–D) dan nomor soal sama dengan lembar cetak modul. Berlaku saat bagian dimulai atau diulang.</span>
+    </div>
+
+    <h2 class="h2">Lab belajar</h2>
+    <p class="note" style="margin:-4px 0 12px">Ringkasan materi yang bisa dicoba kapan saja. Karena isinya membahas materi soal, kerjakan latihan dulu bila ingin menguji diri, lalu buka lab untuk menguatkan bagian yang lemah.</p>
+    <div class="labgrid" id="labgrid"></div>
+
+    <div class="how" aria-label="Cara berlatih">
+      <div><b>1</b>Pilih satu node lalu baca teks dan soal dengan teliti.</div>
+      <div><b>2</b>Pilih jawabanmu, kemudian tekan tombol <b style="display:inline;background:none;color:inherit;width:auto;height:auto;margin:0;font-size:inherit">تَحَقَّقْ</b>.</div>
+      <div><b>3</b>Baca kunci dan penjelasannya sebelum lanjut.</div>
+      <div><b>4</b>Buka Skor untuk melihat indikator yang masih lemah.</div>
+    </div>
+    <p class="note foot">Latihan ini berjalan di halaman saja: skor tidak disimpan di server dan hilang jika halaman dimuat ulang. Pedoman skor mengikuti modul (bagian J.5): benar 1, salah 0, dan untuk pilihan ganda kompleks sebagian benar tanpa pilihan salah 0,5.</p>
+  </section>
+
+  <!-- LATIHAN -->
+  <section id="v-quiz" hidden aria-label="Latihan soal">
+    <div class="qhead">
+      <span class="sec-badge" id="q-badge"></span>
+      <span class="ar" id="q-ar" lang="ar"></span>
+      <span class="sp" style="flex:1"></span>
+      <button class="pill" id="q-text" type="button" aria-pressed="false" aria-controls="q-tp">Teks bacaan</button>
+      <button class="pill" id="q-reset" type="button">Ulangi bagian</button>
+    </div>
+    <div id="q-confirm"></div>
+    <div class="bar" role="progressbar" aria-label="Kemajuan bagian" aria-valuemin="0" aria-valuemax="20" id="q-pb"><i id="q-bar"></i></div>
+    <div class="map" id="q-map" role="group" aria-label="Peta soal"></div>
+    <div class="tp" id="q-tp" hidden></div>
+    <div class="card">
+      <div id="qtop" class="qtop"></div>
+      <div id="q-card"></div>
+    </div>
+    <div id="q-fb" aria-live="polite"></div>
+    <div class="nav">
+      <button class="btn" id="q-prev" type="button">Sebelumnya</button>
+      <button class="btn go" id="q-next" type="button">Berikutnya</button>
+    </div>
+  </section>
+
+  <!-- LAB -->
+  <section id="v-lab" hidden aria-label="Lab belajar">
+    <div class="qhead"><h2>Lab belajar</h2><span class="note">Materi modul dalam bentuk interaktif</span></div>
+    <div class="seg" role="tablist" aria-label="Pilih alat" id="lab-tabs"></div>
+    <div class="card" id="lab-body" role="tabpanel"></div>
+    <div class="racts"><button type="button" class="btn" id="lab-back">Kembali ke beranda</button></div>
+  </section>
+
+  <!-- HASIL -->
+  <section id="v-res" hidden aria-label="Ringkasan skor"></section>
+</main>
+<script>
+/* ===== META: topik, level, bagian, tips ===== */
+const A = x => `<span class="ar" lang="ar" dir="rtl">${x}</span>`;
+const TOPIC = {
+  i1: ['الْمَعْلُومَاتُ الصَّرِيحَةُ', 'Informasi tersurat', 'I-1'],
+  i2: ['الْفَهْمُ الضِّمْنِيُّ وَالْمُفْرَدَاتُ', 'Tersirat, kosakata, rujukan', 'I-2'],
+  i3: ['بِنْيَةُ النَّصِّ الْحِجَاجِيِّ', 'Struktur teks argumentatif', 'I-3'],
+  i4: ['الْوَزْنُ وَشُرُوطُ الصَّوْغِ', 'Wazan dan syarat shiyaghah', 'I-4'],
+  i5: ['أَحْوَالُ اسْمِ التَّفْضِيلِ', 'Empat keadaan isim tafdhil', 'I-5'],
+  i6: ['أَشَدُّ وَأَكْثَرُ مَعَ الْمَصْدَرِ', 'Perbandingan lewat mashdar', 'I-6'],
+  i7: ['تَحْلِيلُ اسْمِ التَّفْضِيلِ فِي النَّصِّ', 'Analisis isim tafdhil pada teks', 'I-7']
+};
+const LV = { 1: ['سَهْلٌ', 'Level 1 · mudah'], 2: ['مُتَوَسِّطٌ', 'Level 2 · sedang'], 3: ['صَعْبٌ', 'Level 3 · sulit'] };
+const SECDEF = {
+  pg: { n: 'الْجُزْءُ الْأَوَّلُ', t: 'اخْتِيَارٌ مِنْ مُتَعَدِّدٍ', id: 'Pilihan ganda', inst: 'اِخْتَرِ الْإِجَابَةَ الصَّحِيحَةَ!', col: 'y', node: 'Node A' },
+  pgk: { n: 'الْجُزْءُ الثَّانِي', t: 'اخْتِيَارٌ مُعَقَّدٌ', id: 'Pilihan ganda kompleks', inst: '', col: 'c', node: 'Node B' },
+  bs: { n: 'الْجُزْءُ الثَّالِثُ', t: 'صَحِيحٌ أَمْ خَطَأٌ', id: 'Benar-salah', inst: 'هَلِ الْعِبَارَةُ التَّالِيَةُ صَحِيحَةٌ أَمْ خَاطِئَةٌ؟', col: 'm', node: 'Node C' }
+};
+const NUMAR = { 2: 'اِخْتَرْ إِجَابَتَيْنِ صَحِيحَتَيْنِ!', 3: 'اِخْتَرْ ثَلَاثَ إِجَابَاتٍ صَحِيحَةً!' };
+const PARN = ['١', '٢', '٣', '٤', '٥'];
+const TIPS = {
+  i1: 'Baca ulang teks dan tunjuk kalimat yang mendukung jawabanmu. Waspadai kata pembatas seperti «فَقَطْ» dan «كُلُّ» yang bisa membuat pernyataan menjadi salah.',
+  i2: 'Latih menentukan rujukan dhamir dan makna ungkapan, misalnya «سِلَاحٌ ذُو حَدَّيْنِ» (bermanfaat sekaligus berbahaya) dan «لَمْ تَبْلُغْ مُنْتَهَاهَا بَعْدُ» (masih terus berkembang).',
+  i3: 'Hafalkan tiga unsur teks argumentatif menurut buku hlm. 18: tesis (الْأُطْرُوحَة), argumen (الْحِجَاج), dan hasil (النَّتِيجَة), beserta fungsi tiap unsur.',
+  i4: 'Ulangi wazan (أَفْعَلُ untuk mudzakkar, فُعْلَى untuk muannats) dan enam syarat shiyaghah, lalu pilah fi\'il yang bisa dan tidak bisa.',
+  i5: 'Lihat dulu apa yang ada setelah isim tafdhil: «مِنْ» berarti keadaan 1, «أَلْ» di awal berarti keadaan 2, ma\'rifah sesudahnya keadaan 3, nakirah sesudahnya keadaan 4.',
+  i6: 'Bila syarat shiyaghah tidak terpenuhi, pakai أَشَدّ atau أَكْثَر lalu mashdar. Mashdar itu berkedudukan mansub (tamyiz) dan أَشَدّ/أَكْثَر tidak berubah bentuk.',
+  i7: 'Cari isim tafdhil di dalam teks lalu tentukan keadaannya. Ingat «مِنْ» sebelum أَهَمِّ atau أَخْطَرِ bermakna «termasuk di antara», bukan «daripada».'
+};
+const fmt = v => (Math.round(v * 10) / 10).toString().replace('.', ',');
+const AR_RUN = /[؀-ۿݐ-ݿﭐ-﷿ﹰ-﻿]+(?:[  ]+[؀-ۿݐ-ݿﭐ-﷿ﹰ-﻿]+)*/g;
+const wrapAr = s => String(s).replace(AR_RUN, m => A(m));
+const LABMAP = { i1: 'peta', i2: 'peta', i3: 'peta', i4: 'kartu', i5: 'pohon', i6: 'kartu', i7: 'pohon' };
+const LABNAME = { peta: 'Peta teks', pohon: 'Pohon keputusan', kartu: 'Kartu fi\'il' };
+/* ===== DATA · dibangkitkan otomatis dari modul (doc.xml) — Kelas XII Bab 1 ===== */
+const TXT = {"title":"تِكْنُولُوجِيَا الْإِعْلَامِ وَالِاتِّصَالِ الْحَدِيثَةُ: بَيْنَ الِاسْتِفَادَةِ وَالْحِمَايَةِ","paras":["قَدْ تَقَدَّمَتْ تِكْنُولُوجِيَا الْإِعْلَامِ وَالِاتِّصَالِ إِلَى ذُرْوَتِهَا وَلٰكِنَّهَا لَمْ تَبْلُغْ مُنْتَهَاهَا بَعْدُ، وَهِيَ تُعَدُّ مِنْ أَهَمِّ الِاخْتِرَاعَاتِ فِي حَيَاةِ الْإِنْسَانِ. أَصْبَحَتْ تِكْنُولُوجِيَا الْإِعْلَامِ وَالِاتِّصَالِ الْحَدِيثَةُ مِنْ أَقْوَى الْوَسَائِلِ الَّتِي تُسْتَخْدَمُ فِي مُخْتَلِفِ مَجَالَاتِ الْحَيَاةِ. عَلَى سَبِيلِ الْمِثَالِ، بِوُجُودِ الْإِنْتَرْنِتِ أَصْبَحَ الْوُصُولُ إِلَى الْمَعْلُومَاتِ أَسْهَلَ وَأَسْرَعَ مِنْ أَيِّ وَقْتٍ مَضِيٍّ، كَمَا أَسْهَمَ فِي تَرْقِيَةِ جَوْدَةِ الْخِدْمَةِ التَّعْلِيمِيَّةِ وَالصِّحِّيَّةِ وَالْإِدَارِيَّةِ وَأَمْنِيَّةِ الدَّوْلَةِ، وَكَذٰلِكَ سَاعَدَ فِي تَطْوِيرِ الْقِطَاعَاتِ الِاجْتِمَاعِيَّةِ وَالِاقْتِصَادِيَّةِ وَغَيْرِهَا.","فَانْظُرْ حَوْلَكَ وَفَكِّرْ! كَمْ مِنَ النَّاسِ يَحْمِلُونَ هَاتِفًا ذَكِيًّا فِي يَوْمِ الْحَاضِرِ، سَوَاءً أَكَانَ الْكِبَارُ أَوِ الشَّبَابُ أَوْ حَتَّى الْأَطْفَالُ يَكَادُ جَمِيعُهُمْ يُمْسِكُونَ هٰذَا الْجِهَازَ بِأَيْدِيهِمْ. بَعْضُهُمْ مَنْ يَسْتَفِيدُ مِنْهُ لِلْأَعْمَالِ الْإِيجَابِيَّةِ مِثْلُ مُمَارَسَةِ أَنْشِطَةِ التَّعْلِيمِ أَوِ الْأَعْمَالِ الْإِدَارِيَّةِ، أَوِ الْأَعْمَالِ التِّجَارِيَّةِ، أَوِ الْأَعْمَالِ الِاتِّصَالِيَّةِ عَبْرَ وَسَائِلِ التَّوَاصُلِ الِاجْتِمَاعِيِّ الْمُخْتَلِفَةِ، وَمَا إِلَى ذٰلِكَ. وَبَعْضُهُمْ مَنْ يَتَمَتَّعُ فَقَطْ بِأَنْوَاعِ التَّطْبِيقَاتِ التَّرْفِيهِيَّةِ وَالْأَلْعَابِ الْإِلِكْتُرُونِيَّةِ الْمُتَوَفِّرَةِ عَبْرَ الْإِنْتَرْنِتِ. كُلُّهُمْ يَسْتَخْدِمُ الْجِهَازَ الْإِلِكْتُرُونِيَّ وِفْقًا لِاهْتِمَامِهِ وَمُتْعَتِهِ.","وَلٰكِنْ مَعَ هٰذِهِ الْفَوَائِدِ الْكَثِيرَةِ، إِنَّ تِكْنُولُوجِيَا الْإِعْلَامِ وَالِاتِّصَالِ الْحَدِيثَةَ سِلَاحٌ ذُو حَدَّيْنِ. إِنْ يَسْتَخْدِمْهَا الْمُسْتَخْدِمُ غَيْرَ حَذِرٍ فَسَتُؤَدِّي إِلَى الْعَدِيدِ مِنَ الْمُشْكِلَاتِ. أَحْيَانًا تَنْشَأُ هٰذِهِ الْمُشْكِلَاتُ مِنْ دَاخِلِ النَّفْسِ وَفِي بَعْضِ الْأَحْيَانِ تَنْشَأُ مِنْ خَارِجِهَا. وَأَمَّا الَّتِي تَنْشَأُ مِنْ دَاخِلِ النَّفْسِ فَعِنْدَمَا يَبْدَأُ الْمُسْتَخْدِمُ فِي الْإِدْمَانِ حَتَّى يَفْقِدَ الْإِحْسَاسَ بِأَغْلَبِ الْوَقْتِ وَيَتْرُكَ الْوَاجِبَ الْأَسَاسِيَّ. وَأَمَّا الَّتِي تَنْشَأُ مِنَ الْخَارِجِ فَعِنْدَمَا أَسَاءَ الْبَعْضُ الْآخَرُ أَنْ يَسْتَخْدِمَهَا وَيَجْعَلَهَا وَسِيلَةً لِتَيْسِيرِ مَسَالِكِ الشَّرِّ، كَمَا يَتَجَسَّسُ عَلَى خُصُوصِيَّةِ النَّاسِ بِغَيْرِ حَقٍّ وَيَسْتَفِيدُ مِنْهُ لِنَفْسِهِ أَوْ يَنْشُرُ أَكْثَرَ الْأَخْبَارِ الْكَاذِبَةِ. كَمَا أَنَّ الْجَرَائِمَ السِّيبْرَانِيَّةَ أَصْبَحَتْ مِنْ أَخْطَرِ الْأَخْطَارِ الَّتِي تُهَدِّدُ سَلَامَةَ الْإِنْسَانِ وَكَذٰلِكَ اسْتِقْرَارَ الْمُجْتَمَعِ.","اِنْطِلَاقًا مِنْ هٰذِهِ الْمَظَاهِرِ فَلَا بُدَّ لَنَا أَنْ نَسْتَعِدَّ لِلْحِمَايَةِ الذَّاتِيَّةِ الْقُصْوَى فِي مُوَاجَهَةِ الْمَخَاطِرِ الْمُحْتَمَلَةِ عِنْدَ اسْتِخْدَامِ الْإِنْتَرْنِتِ. يَنْبَغِي لِلْآبَاءِ وَالْمُعَلِّمِينَ أَنْ يُوَجِّهُوا الشَّبَابَ وَالْأَطْفَالَ إِلَى الِاسْتِفَادَةِ الْفُضْلَى مِنْ أَجْهِزَةِ تِكْنُولُوجِيَا الْإِعْلَامِ وَالِاتِّصَالِ الْحَدِيثَةِ بِمُمَارَسَةِ الْأَنْشِطَةِ التَّعَلُّمِيَّةِ أَوِ الْأَعْمَالِ الْمُنْتَجَةِ الْأُخْرَى بَدَلًا مِنَ الْأَعْمَالِ التَّرْفِيهِيَّةِ الْمُفْرِطَةِ. وَيَنْبَغِي لِلْحُكُومَةِ أَنْ تَتَّخِذَ خُطُوَاتٍ عَمَلِيَّةً فَعَّالَةً لِحِمَايَةِ الْمُسْتَخْدِمِينَ، وَمِنْ أَهَمِّ هٰذِهِ الْخُطُوَاتِ وَضْعُ قَوَانِينَ تَجْعَلُ بِيئَةَ الْإِنْتَرْنِتِ أَكْثَرَ أَمَانًا لِلْبَيَانَاتِ الشَّخْصِيَّةِ إِضَافَةً إِلَى تَعْزِيزِ الْوَعْيِ الرَّقْمِيِّ لِلْمُجْتَمَعِ.","لِذٰلِكَ، يُمْكِنُ الْقَوْلُ إِنَّ تِكْنُولُوجِيَا الْإِعْلَامِ وَالِاتِّصَالِ الْحَدِيثَةَ تُعَدُّ مِنْ أَعْظَمِ الِاخْتِرَاعَاتِ وَالِابْتِدَاعَاتِ لَدَى الْإِنْسَانِ الَّتِي يُمْكِنُ أَنْ يَجْلِبَ الْفَوَائِدَ الْكَبِيرَةَ لِمَصْلَحَةِ الْأُمَّةِ وَتَزْدَادُ جَوْدَتُهَا عِنْدَمَا يُحْظَى بِالْحِمَايَةِ الْقَوِيَّةِ عَلَى جَمِيعِ الْأَنْشِطَةِ السِّلْبِيَّاتِ فِي الِاسْتِفَادَةِ مِنْهَا."]};
+const QS = [
+{"id":"p1","sec":"pg","topic":"i1","lvl":2,"q":"مَا الْفِكْرَةُ الرَّئِيسَةُ لِلنَّصِّ «تِكْنُولُوجِيَا الْإِعْلَامِ وَالِاتِّصَالِ الْحَدِيثَةُ: بَيْنَ الِاسْتِفَادَةِ وَالْحِمَايَةِ»؟","opts":[{"k":"a","ar":"الْهَاتِفُ الذَّكِيُّ أَهَمُّ اخْتِرَاعٍ فِي التَّارِيخِ"},{"k":"b","ar":"فَوَائِدُ التِّكْنُولُوجِيَا كَبِيرَةٌ وَلٰكِنَّهَا تَحْتَاجُ إِلَى حِمَايَةٍ قَوِيَّةٍ"},{"k":"c","ar":"يَجِبُ عَلَى الشَّبَابِ تَرْكُ اسْتِخْدَامِ الْإِنْتَرْنِتِ"},{"k":"d","ar":"الْجَرَائِمُ السِّيبْرَانِيَّةُ سَبَبُ تَقَدُّمِ التِّكْنُولُوجِيَا"}],"ans":["b"],"why":"Judul dan paragraf penutup menegaskan dua sisi: manfaat besar dan perlunya perlindungan. Pilihan lain terlalu sempit atau bertentangan dengan teks.","txt":1},
+{"id":"p2","sec":"pg","topic":"i2","lvl":1,"q":"مَا مَعْنَى «سِلَاحٌ ذُو حَدَّيْنِ» فِي الْفِقْرَةِ الثَّالِثَةِ؟","opts":[{"k":"a","ar":"لَهَا فَوَائِدُ وَلَهَا أَخْطَارٌ"},{"k":"b","ar":"لَهَا قُوَّةٌ كَبِيرَةٌ فَقَطْ"},{"k":"c","ar":"ثَمَنُهَا غَالٍ جِدًّا"},{"k":"d","ar":"تُصْنَعُ مِنَ الْحَدِيدِ"}],"ans":["a"],"why":"Ungkapan «pedang bermata dua» dipakai penulis untuk menyatakan bahwa TIK bisa bermanfaat sekaligus berbahaya bila dipakai tanpa kehati-hatian.","par":3},
+{"id":"p3","sec":"pg","topic":"i1","lvl":1,"q":"مَا سَبَبُ كَوْنِ الْوُصُولِ إِلَى الْمَعْلُومَاتِ «أَسْهَلَ وَأَسْرَعَ مِنْ أَيِّ وَقْتٍ مَضِيٍّ» حَسَبَ الْفِقْرَةِ الْأُولَى؟","opts":[{"k":"a","ar":"كَثْرَةُ الْمَكْتَبَاتِ"},{"k":"b","ar":"قِلَّةُ الْمُسْتَخْدِمِينَ"},{"k":"c","ar":"وُجُودُ الْإِنْتَرْنِتِ"},{"k":"d","ar":"رُخْصُ الْهَوَاتِفِ"}],"ans":["c"],"why":"Paragraf 1: «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">بِوُجُودِ الْإِنْتَرْنِتِ أَصْبَحَ الْوُصُولُ إِلَى الْمَعْلُومَاتِ أَسْهَلَ وَأَسْرَعَ</span>». Informasi tersurat.","par":1},
+{"id":"p4","sec":"pg","topic":"i1","lvl":1,"q":"مَا مَصْدَرَا الْمُشْكِلَاتِ النَّاتِجَةِ عَنِ اسْتِخْدَامِ التِّكْنُولُوجِيَا غَيْرِ الْحَذِرِ حَسَبَ الْفِقْرَةِ الثَّالِثَةِ؟","opts":[{"k":"a","ar":"الْبَيْتُ وَالْمَدْرَسَةُ"},{"k":"b","ar":"الْحُكُومَةُ وَالشَّرِكَاتُ"},{"k":"c","ar":"الْكِبَارُ وَالْأَطْفَالُ"},{"k":"d","ar":"دَاخِلُ النَّفْسِ وَخَارِجُهَا"}],"ans":["d"],"why":"Paragraf 3: masalah muncul «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">مِنْ دَاخِلِ النَّفْسِ</span>» (misalnya kecanduan) dan «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">مِنْ خَارِجِهَا</span>» (penyalahgunaan oleh orang lain).","par":3},
+{"id":"p5","sec":"pg","topic":"i1","lvl":1,"q":"مَاذَا يَحْدُثُ لِلْمُسْتَخْدِمِ عِنْدَمَا يَبْدَأُ فِي الْإِدْمَانِ حَسَبَ النَّصِّ؟","opts":[{"k":"a","ar":"يَرْبَحُ الْمَالَ الْكَثِيرَ"},{"k":"b","ar":"يَفْقِدُ الْإِحْسَاسَ بِالْوَقْتِ وَيَتْرُكُ الْوَاجِبَ الْأَسَاسِيَّ"},{"k":"c","ar":"يَتَعَلَّمُ لُغَاتٍ جَدِيدَةً"},{"k":"d","ar":"يَصِيرُ أَكْثَرَ حَذَرًا"}],"ans":["b"],"why":"Paragraf 3 menyebut pecandu «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">يَفْقِدَ الْإِحْسَاسَ بِأَغْلَبِ الْوَقْتِ وَيَتْرُكَ الْوَاجِبَ الْأَسَاسِيَّ</span>».","par":3},
+{"id":"p6","sec":"pg","topic":"i2","lvl":2,"q":"فِي الْفِقْرَةِ الثَّانِيَةِ: «بَعْضُهُمْ مَنْ يَسْتَفِيدُ مِنْهُ لِلْأَعْمَالِ الْإِيجَابِيَّةِ». مَنِ الْمَقْصُودُ بِالضَّمِيرِ «هُمْ»؟","opts":[{"k":"a","ar":"الْمُعَلِّمُونَ فَقَطْ"},{"k":"b","ar":"أَصْحَابُ الشَّرِكَاتِ"},{"k":"c","ar":"النَّاسُ الَّذِينَ يَحْمِلُونَ هَاتِفًا ذَكِيًّا"},{"k":"d","ar":"الْحُكَّامُ"}],"ans":["c"],"why":"Kalimat sebelumnya: «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">كَمْ مِنَ النَّاسِ يَحْمِلُونَ هَاتِفًا ذَكِيًّا</span>». Dhamir «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">هُمْ</span>» merujuk pada orang-orang pemilik ponsel pintar (kecil dan besar).","par":2},
+{"id":"p7","sec":"pg","topic":"i1","lvl":1,"q":"مَنْ يُوَجِّهُ الشَّبَابَ وَالْأَطْفَالَ إِلَى الِاسْتِفَادَةِ الْفُضْلَى مِنْ أَجْهِزَةِ التِّكْنُولُوجِيَا حَسَبَ الْفِقْرَةِ الرَّابِعَةِ؟","opts":[{"k":"a","ar":"الْآبَاءُ وَالْمُعَلِّمُونَ"},{"k":"b","ar":"أَصْحَابُ الْمَتَاجِرِ"},{"k":"c","ar":"شَرِكَاتُ الْإِنْتَرْنِتِ"},{"k":"d","ar":"الْأَصْدِقَاءُ فَقَطْ"}],"ans":["a"],"why":"Paragraf 4: «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">يَنْبَغِي لِلْآبَاءِ وَالْمُعَلِّمِينَ أَنْ يُوَجِّهُوا الشَّبَابَ وَالْأَطْفَالَ</span>».","par":4},
+{"id":"p8","sec":"pg","topic":"i1","lvl":1,"q":"مَا الْخُطْوَةُ الَّتِي ذُكِرَتْ مِنْ أَهَمِّ خُطُوَاتِ الْحُكُومَةِ لِحِمَايَةِ الْمُسْتَخْدِمِينَ؟","opts":[{"k":"a","ar":"حَجْبُ جَمِيعِ التَّطْبِيقَاتِ"},{"k":"b","ar":"بَيْعُ الْبَيَانَاتِ الشَّخْصِيَّةِ"},{"k":"c","ar":"إِيقَافُ الْإِنْتَرْنِتِ"},{"k":"d","ar":"وَضْعُ قَوَانِينَ تَجْعَلُ بِيئَةَ الْإِنْتَرْنِتِ أَكْثَرَ أَمَانًا"}],"ans":["d"],"why":"Paragraf 4: langkah terpenting pemerintah adalah membuat undang-undang agar lingkungan internet lebih aman bagi data pribadi, ditambah penguatan kesadaran digital.","txt":1},
+{"id":"p9","sec":"pg","topic":"i3","lvl":2,"q":"فِي النَّصِّ الْحِجَاجِيِّ، الْجُمْلَةُ «لِذٰلِكَ، يُمْكِنُ الْقَوْلُ إِنَّ تِكْنُولُوجِيَا الْإِعْلَامِ وَالِاتِّصَالِ الْحَدِيثَةَ تُعَدُّ مِنْ أَعْظَمِ الِاخْتِرَاعَاتِ...» تُمَثِّلُ:","opts":[{"k":"a","ar":"الْأُطْرُوحَةَ"},{"k":"b","ar":"الْأَدِلَّةَ"},{"k":"c","ar":"الْبَرَاهِينَ"},{"k":"d","ar":"النَّتِيجَةَ"}],"ans":["d"],"why":"Kalimat ini diawali «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">لِذٰلِكَ</span>» dan menarik simpulan dari seluruh uraian, jadi berfungsi sebagai <span class=\"ar\" lang=\"ar\" dir=\"rtl\">النَّتِيجَة</span> (hasil/kesimpulan). Buku hlm. 19 menempatkannya pada kotak <span class=\"ar\" lang=\"ar\" dir=\"rtl\">النَّتِيجَة</span>.","txt":1},
+{"id":"p10","sec":"pg","topic":"i2","lvl":3,"q":"مَاذَا نَفْهَمُ ضِمْنًا مِنْ قَوْلِ الْكَاتِبِ «وَلٰكِنَّهَا لَمْ تَبْلُغْ مُنْتَهَاهَا بَعْدُ»؟","opts":[{"k":"a","ar":"أَنَّ التِّكْنُولُوجِيَا تَوَقَّفَتْ عَنِ التَّطَوُّرِ"},{"k":"b","ar":"أَنَّ التِّكْنُولُوجِيَا مَا زَالَتْ تَتَطَوَّرُ"},{"k":"c","ar":"أَنَّ التِّكْنُولُوجِيَا اخْتَفَتْ"},{"k":"d","ar":"أَنَّ التِّكْنُولُوجِيَا غَيْرُ مُفِيدَةٍ"}],"ans":["b"],"why":"«<span class=\"ar\" lang=\"ar\" dir=\"rtl\">لَمْ تَبْلُغْ مُنْتَهَاهَا بَعْدُ</span>» = belum mencapai batas akhir; artinya perkembangannya masih berlanjut. Informasi tersirat.","txt":1},
+{"id":"p11","sec":"pg","topic":"i4","lvl":1,"q":"مَا وَزْنُ اسْمِ التَّفْضِيلِ لِلْمُذَكَّرِ؟","opts":[{"k":"a","ar":"أَفْعَلُ"},{"k":"b","ar":"فُعْلَى"},{"k":"c","ar":"فَاعِلٌ"},{"k":"d","ar":"مَفْعُولٌ"}],"ans":["a"],"why":"Buku hlm. 12: wazan untuk mudzakkar <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَفْعَلُ</span>, untuk muannats <span class=\"ar\" lang=\"ar\" dir=\"rtl\">فُعْلَى</span>."},
+{"id":"p12","sec":"pg","topic":"i4","lvl":1,"q":"مَا مُؤَنَّثُ اسْمِ التَّفْضِيلِ «أَفْضَلُ»؟","opts":[{"k":"a","ar":"فَاضِلَةٌ"},{"k":"b","ar":"أَفْضَلَةٌ"},{"k":"c","ar":"فُضْلَى"},{"k":"d","ar":"فَضْلَاءُ"}],"ans":["c"],"why":"Bentuk muannats isim tafdhil berwazan <span class=\"ar\" lang=\"ar\" dir=\"rtl\">فُعْلَى</span>: <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَفْضَلُ</span> ← <span class=\"ar\" lang=\"ar\" dir=\"rtl\">فُضْلَى</span>. «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">فَاضِلَةٌ</span>» adalah isim fa'il; «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">فَضْلَاءُ</span>» jamak dari «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">فَاضِلٌ</span>»."},
+{"id":"p13","sec":"pg","topic":"i4","lvl":2,"q":"أَيُّ الْأَفْعَالِ الْآتِيَةِ يُصَاغُ مِنْهُ اسْمُ التَّفْضِيلِ مُبَاشَرَةً؟","opts":[{"k":"a","ar":"كَانَ"},{"k":"b","ar":"سَهُلَ"},{"k":"c","ar":"اسْتَخْرَجَ"},{"k":"d","ar":"احْمَرَّ"}],"ans":["b"],"why":"«<span class=\"ar\" lang=\"ar\" dir=\"rtl\">سَهُلَ</span>» tsulatsi, mutsbat, mutasharrif, ma'lum, tam, dan qabil lit-tafdhil → <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَسْهَلُ</span>. «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">كَانَ</span>» naqish, «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">اسْتَخْرَجَ</span>» bukan tsulatsi, «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">احْمَرَّ</span>» menunjukkan warna."},
+{"id":"p14","sec":"pg","topic":"i4","lvl":2,"q":"الْفِعْلُ الَّذِي لَا يُصَاغُ مِنْهُ اسْمُ التَّفْضِيلِ لِأَنَّهُ يَدُلُّ عَلَى عَيْبٍ هُوَ:","opts":[{"k":"a","ar":"كَرُمَ"},{"k":"b","ar":"فَهِمَ"},{"k":"c","ar":"عَمِيَ"},{"k":"d","ar":"قَوِيَ"}],"ans":["c"],"why":"«<span class=\"ar\" lang=\"ar\" dir=\"rtl\">عَمِيَ</span>» menunjukkan cacat (buta); sifatnya <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَعْمَى</span>, bukan isim tafdhil. Syarat: tidak menunjukkan warna, cacat, atau hiasan/ciri khas (buku hlm. 12–13)."},
+{"id":"p15","sec":"pg","topic":"i5","lvl":2,"q":"أَكْمِلْ: «فَاطِمَةُ ____ مِنْ عَائِشَةَ فِي اسْتِخْدَامِ الْحَاسُوبِ.»","opts":[{"k":"a","ar":"الْفُضْلَى"},{"k":"b","ar":"فُضْلَى"},{"k":"c","ar":"أَفْضَلَةٌ"},{"k":"d","ar":"أَفْضَلُ"}],"ans":["d"],"why":"Keadaan 1 (mujarrad dari «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَلْ</span>» dan idhafah, diikuti «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">مِنْ</span>»): isim tafdhil tetap mufrad mudzakkar meskipun mausufnya muannats → <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَفْضَلُ مِنْ</span>."},
+{"id":"p16","sec":"pg","topic":"i5","lvl":2,"q":"أَكْمِلْ: «الطَّالِبَتَانِ هُمَا ____»","opts":[{"k":"a","ar":"الْأَفْضَلُ"},{"k":"b","ar":"الْفُضْلَى"},{"k":"c","ar":"الْفُضْلَيَانِ"},{"k":"d","ar":"الْأَفْضَلُونَ"}],"ans":["c"],"why":"Keadaan 2 (muqtarin bi-«<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَلْ</span>»): wajib sesuai mausuf dalam jenis dan jumlah. Mausuf = dua perempuan → <span class=\"ar\" lang=\"ar\" dir=\"rtl\">الْفُضْلَيَانِ</span> (contoh buku hlm. 12)."},
+{"id":"p17","sec":"pg","topic":"i5","lvl":2,"q":"مَا حَالَةُ اسْمِ التَّفْضِيلِ فِي الْجُمْلَةِ «هُمَا أَفْضَلَا الْقَوْمِ»؟","opts":[{"k":"a","ar":"مُضَافٌ إِلَى مَعْرِفَةٍ"},{"k":"b","ar":"مُجَرَّدٌ مِنْ أَلْ وَالْإِضَافَةِ"},{"k":"c","ar":"مُقْتَرِنٌ بِأَلْ"},{"k":"d","ar":"مُضَافٌ إِلَى نَكِرَةٍ"}],"ans":["a"],"why":"«<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَفْضَلَا</span>» di-idhafah-kan kepada «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">الْقَوْمِ</span>» (ma'rifah). Pada keadaan ini isim tafdhil boleh tetap mufrad atau mengikuti mausuf (hlm. 12)."},
+{"id":"p18","sec":"pg","topic":"i5","lvl":3,"q":"أَكْمِلْ: «هَاتَانِ ____ امْرَأَتَيْنِ.»","opts":[{"k":"a","ar":"أَفْضَلَتَانِ"},{"k":"b","ar":"الْفُضْلَيَانِ"},{"k":"c","ar":"فُضْلَيَانِ"},{"k":"d","ar":"أَفْضَلُ"}],"ans":["d"],"why":"Keadaan 4 (idhafah ke nakirah): isim tafdhil wajib mufrad mudzakkar, nakirah sesudahnya yang mengikuti mausuf (contoh buku: «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">هَاتَانِ أَفْضَلُ امْرَأَتَيْنِ</span>»)."},
+{"id":"p19","sec":"pg","topic":"i6","lvl":2,"q":"كَيْفَ نُعَبِّرُ عَنِ التَّفْضِيلِ مِنْ فِعْلٍ لَا يَسْتَوْفِي شُرُوطَ الصَّوْغِ مِثْلِ «اِنْتَشَرَ»؟","opts":[{"k":"a","ar":"نَصُوغُ مِنْهُ مُبَاشَرَةً عَلَى وَزْنِ أَفْعَلَ"},{"k":"b","ar":"نَسْتَخْدِمُ «أَشَدَّ» أَوْ «أَكْثَرَ» ثُمَّ مَصْدَرَ الْفِعْلِ"},{"k":"c","ar":"نَحْذِفُ الْفِعْلَ وَنَسْتَخْدِمُ «فُعْلَى»"},{"k":"d","ar":"نَسْتَخْدِمُ «أَلْ» فَقَطْ"}],"ans":["b"],"why":"Buku hlm. 13: untuk fi'il yang tidak memenuhi syarat dipakai <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَشَدّ</span>/<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَكْثَر</span> (atau yang sejenis) + mashdar. «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">اِنْتَشَرَ</span>» bukan tsulatsi, jadi susunannya «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَكْثَرُ انْتِشَارًا</span>» (contoh susunan penyusun)."},
+{"id":"p20","sec":"pg","topic":"i7","lvl":3,"q":"فِي أَيِّ جُمْلَةٍ مِنَ النَّصِّ يَأْتِي اسْمُ التَّفْضِيلِ مُجَرَّدًا مِنْ «أَلْ» وَالْإِضَافَةِ؟","opts":[{"k":"a","ar":"«أَصْبَحَ الْوُصُولُ إِلَى الْمَعْلُومَاتِ أَسْهَلَ وَأَسْرَعَ مِنْ أَيِّ وَقْتٍ مَضِيٍّ»"},{"k":"b","ar":"«وَهِيَ تُعَدُّ مِنْ أَهَمِّ الِاخْتِرَاعَاتِ فِي حَيَاةِ الْإِنْسَانِ»"},{"k":"c","ar":"«الِاسْتِفَادَةِ الْفُضْلَى مِنْ أَجْهِزَةِ تِكْنُولُوجِيَا الْإِعْلَامِ»"},{"k":"d","ar":"«الْجَرَائِمَ السِّيبْرَانِيَّةَ أَصْبَحَتْ مِنْ أَخْطَرِ الْأَخْطَارِ»"}],"ans":["a"],"why":"«<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَسْهَلَ وَأَسْرَعَ</span>» berdiri sendiri (tanpa «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَلْ</span>» dan idhafah) lalu diikuti «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">مِنْ</span>» pembanding. «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَهَمِّ</span>» dan «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَخْطَرِ</span>» di-idhafah-kan; «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">الْفُضْلَى</span>» berawalan «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَلْ</span>».","txt":1},
+{"id":"k1","sec":"pgk","topic":"i1","lvl":1,"q":"اِخْتَرِ الْمَجَالَاتِ الَّتِي أَسْهَمَتْ فِيهَا تِكْنُولُوجِيَا الْإِعْلَامِ وَالِاتِّصَالِ حَسَبَ الْفِقْرَةِ الْأُولَى.","opts":[{"k":"a","ar":"صِنَاعَةُ السَّيَّارَاتِ"},{"k":"b","ar":"الْخِدْمَةُ الصِّحِّيَّةُ"},{"k":"c","ar":"الزِّرَاعَةُ"},{"k":"d","ar":"الْخِدْمَةُ التَّعْلِيمِيَّةُ"},{"k":"e","ar":"أَمْنِيَّةُ الدَّوْلَةِ"}],"ans":["b","d","e"],"why":"Paragraf 1 menyebut peningkatan mutu layanan pendidikan, kesehatan, administrasi, dan keamanan negara. Industri mobil dan pertanian tidak disebut.","par":1},
+{"id":"k2","sec":"pgk","topic":"i1","lvl":1,"q":"اِخْتَرِ الْأَعْمَالَ الْإِيجَابِيَّةَ الَّتِي ذُكِرَتْ فِي الْفِقْرَةِ الثَّانِيَةِ.","opts":[{"k":"a","ar":"التَّطْبِيقَاتُ التَّرْفِيهِيَّةُ"},{"k":"b","ar":"الْإِدْمَانُ"},{"k":"c","ar":"الْأَعْمَالُ الْإِدَارِيَّةُ"},{"k":"d","ar":"مُمَارَسَةُ أَنْشِطَةِ التَّعْلِيمِ"},{"k":"e","ar":"نَشْرُ الْأَخْبَارِ الْكَاذِبَةِ"}],"ans":["c","d"],"why":"Pemanfaatan positif: kegiatan pendidikan, administrasi, perdagangan, dan komunikasi. Aplikasi hiburan disebut sebagai kesenangan semata; berita bohong dan kecanduan termasuk masalah.","par":2},
+{"id":"k3","sec":"pgk","topic":"i1","lvl":2,"q":"اِخْتَرِ الْمُشْكِلَاتِ الَّتِي تَنْشَأُ مِنْ خَارِجِ النَّفْسِ حَسَبَ الْفِقْرَةِ الثَّالِثَةِ.","opts":[{"k":"a","ar":"فُقْدَانُ الْإِحْسَاسِ بِالْوَقْتِ"},{"k":"b","ar":"تَيْسِيرُ مَسَالِكِ الشَّرِّ"},{"k":"c","ar":"التَّجَسُّسُ عَلَى خُصُوصِيَّةِ النَّاسِ"},{"k":"d","ar":"تَرْكُ الْوَاجِبِ الْأَسَاسِيِّ"},{"k":"e","ar":"نَشْرُ الْأَخْبَارِ الْكَاذِبَةِ"}],"ans":["b","c","e"],"why":"Masalah «dari luar» terjadi saat orang lain menyalahgunakan TIK: memata-matai privasi, menyebar kabar bohong, memudahkan jalan kejahatan. Kehilangan rasa waktu dan meninggalkan kewajiban adalah masalah «dari dalam diri» (kecanduan).","par":3},
+{"id":"k4","sec":"pgk","topic":"i1","lvl":2,"q":"اِخْتَرِ الْحُلُولَ الْمُقْتَرَحَةَ فِي الْفِقْرَةِ الرَّابِعَةِ.","opts":[{"k":"a","ar":"تَوْجِيهُ الشَّبَابِ إِلَى الْأَنْشِطَةِ التَّعَلُّمِيَّةِ"},{"k":"b","ar":"تَعْزِيزُ الْوَعْيِ الرَّقْمِيِّ لِلْمُجْتَمَعِ"},{"k":"c","ar":"مَنْعُ الْأَطْفَالِ مِنْ كُلِّ جِهَازٍ"},{"k":"d","ar":"وَضْعُ قَوَانِينَ لِحِمَايَةِ الْبَيَانَاتِ الشَّخْصِيَّةِ"},{"k":"e","ar":"بَيْعُ الْهَوَاتِفِ بِأَسْعَارٍ رَخِيصَةٍ"}],"ans":["a","b","d"],"why":"Paragraf 4 menganjurkan pengarahan generasi muda, undang-undang perlindungan data, dan penguatan kesadaran digital. Pelarangan total dan penjualan murah tidak disebut.","par":4},
+{"id":"k5","sec":"pgk","topic":"i2","lvl":2,"q":"اِخْتَرِ الْعَلَاقَاتِ الصَّحِيحَةَ بَيْنَ الْكَلِمَاتِ حَسَبَ السِّيَاقِ.","opts":[{"k":"a","ar":"«ذُرْوَةٌ» تُرَادِفُ «قِمَّةٌ»"},{"k":"b","ar":"«يَتَجَسَّسُ» تُرَادِفُ «يَحْمِي»"},{"k":"c","ar":"«سَلْبِيَّةٌ» تُرَادِفُ «إِيجَابِيَّةٌ»"},{"k":"d","ar":"«مُفْرِطَةٌ» ضِدُّهَا «مُعْتَدِلَةٌ»"},{"k":"e","ar":"«حَذِرٌ» تُرَادِفُ «مُهْمِلٌ»"}],"ans":["a","d"],"why":"<span class=\"ar\" lang=\"ar\" dir=\"rtl\">ذُرْوَة</span> = puncak = <span class=\"ar\" lang=\"ar\" dir=\"rtl\">قِمَّة</span> (sinonim). <span class=\"ar\" lang=\"ar\" dir=\"rtl\">مُفْرِطَة</span> (berlebihan) berlawanan dengan <span class=\"ar\" lang=\"ar\" dir=\"rtl\">مُعْتَدِلَة</span> (wajar). Pasangan lain salah: <span class=\"ar\" lang=\"ar\" dir=\"rtl\">حَذِر</span> = waspada (bukan lalai), <span class=\"ar\" lang=\"ar\" dir=\"rtl\">سَلْبِيَّة</span> kebalikan <span class=\"ar\" lang=\"ar\" dir=\"rtl\">إِيجَابِيَّة</span>, <span class=\"ar\" lang=\"ar\" dir=\"rtl\">يَتَجَسَّسُ</span> = memata-matai.","txt":1},
+{"id":"k6","sec":"pgk","topic":"i2","lvl":3,"q":"اِخْتَرِ الِاسْتِنْتَاجَاتِ الصَّحِيحَةَ مِنَ النَّصِّ كُلِّهِ.","opts":[{"k":"a","ar":"الْكَاتِبُ يَرَى أَنْ يَبْتَعِدَ الْأَطْفَالُ عَنِ الْأَجْهِزَةِ كُلِّيًّا"},{"k":"b","ar":"الْجَرَائِمُ السِّيبْرَانِيَّةُ لَا تُؤَثِّرُ فِي الْمُجْتَمَعِ"},{"k":"c","ar":"الْوَعْيُ الرَّقْمِيُّ جُزْءٌ مِنَ الْحِمَايَةِ"},{"k":"d","ar":"الْكَاتِبُ لَا يَرْفُضُ التِّكْنُولُوجِيَا بَلْ يَدْعُو إِلَى حُسْنِ اسْتِخْدَامِهَا"},{"k":"e","ar":"حِمَايَةُ الْمُسْتَخْدِمِ مَسْؤُولِيَّةُ الْحُكُومَةِ وَحْدَهَا"}],"ans":["c","d"],"why":"Penulis menyeimbangkan manfaat dan perlindungan, dan menyebut «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">تَعْزِيزِ الْوَعْيِ الرَّقْمِيِّ</span>» sebagai langkah perlindungan. Teks tidak menyuruh menjauhi gawai, menyebut kejahatan siber mengancam masyarakat, dan membagi tanggung jawab (orang tua, guru, pemerintah).","txt":1},
+{"id":"k7","sec":"pgk","topic":"i3","lvl":1,"q":"اِخْتَرْ عَنَاصِرَ النَّصِّ الْحِجَاجِيِّ حَسَبَ الْكِتَابِ.","opts":[{"k":"a","ar":"الْأُطْرُوحَةُ"},{"k":"b","ar":"النَّتِيجَةُ"},{"k":"c","ar":"الْحِجَاجُ"},{"k":"d","ar":"الْمُقَدِّمَةُ الْأَدَبِيَّةُ"},{"k":"e","ar":"الْعُقْدَةُ"}],"ans":["a","b","c"],"why":"Buku hlm. 18: unsur teks argumentatif = tesis (<span class=\"ar\" lang=\"ar\" dir=\"rtl\">الْأُطْرُوحَة</span>), argumen (<span class=\"ar\" lang=\"ar\" dir=\"rtl\">الْحِجَاج</span>), dan hasil/kesimpulan (<span class=\"ar\" lang=\"ar\" dir=\"rtl\">النَّتِيجَة</span>). «Muqaddimah adabiyyah» dan «uqdah» (konflik) bukan unsur teks argumentatif."},
+{"id":"k8","sec":"pgk","topic":"i3","lvl":1,"q":"اِخْتَرْ هَدَفَ النَّصِّ الْحِجَاجِيِّ.","opts":[{"k":"a","ar":"إِقْنَاعُ الْقَارِئِ بِفِكْرَةٍ مُعَيَّنَةٍ"},{"k":"b","ar":"سَرْدُ الْأَحْدَاثِ بِلَا دَلِيلٍ"},{"k":"c","ar":"التَّسْلِيَةُ فَقَطْ"},{"k":"d","ar":"وَصْفُ الْمَكَانِ"},{"k":"e","ar":"التَّأْثِيرُ فِي الْقَارِئِ بِأَدِلَّةٍ وَبَرَاهِينَ"}],"ans":["a","e"],"why":"Buku hlm. 18: teks argumentatif bertujuan meyakinkan sekaligus mempengaruhi pembaca atas suatu gagasan dengan bukti dan alasan pendukung."},
+{"id":"k9","sec":"pgk","topic":"i3","lvl":2,"q":"اِخْتَرْ عِبَارَاتِ الرَّبْطِ الَّتِي وَرَدَتْ بِنَصِّهَا فِي النَّصِّ.","opts":[{"k":"a","ar":"بِالْإِضَافَةِ إِلَى ذٰلِكَ"},{"k":"b","ar":"اِنْطِلَاقًا مِنْ هٰذِهِ الْمَظَاهِرِ"},{"k":"c","ar":"لِذٰلِكَ"},{"k":"d","ar":"فِي الْخِتَامِ"},{"k":"e","ar":"عَلَى سَبِيلِ الْمِثَالِ"}],"ans":["b","c","e"],"why":"Teks memuat «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">عَلَى سَبِيلِ الْمِثَالِ</span>» (par. 1), «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">لِذٰلِكَ</span>» (par. 5), dan «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">اِنْطِلَاقًا مِنْ هٰذِهِ الْمَظَاهِرِ</span>» (par. 4). «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">بِالْإِضَافَةِ إِلَى ذٰلِكَ</span>» dan «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">فِي الْخِتَامِ</span>» tidak muncul dengan bunyi itu.","txt":1},
+{"id":"k10","sec":"pgk","topic":"i1","lvl":2,"q":"اِخْتَرِ الْجُمَلَ الْمُتَّفِقَةَ مَعَ مَضْمُونِ الْفِقْرَةِ الْخَامِسَةِ.","opts":[{"k":"a","ar":"الْأَنْشِطَةُ السِّلْبِيَّةُ تَزِيدُ فَوَائِدَهَا"},{"k":"b","ar":"التِّكْنُولُوجِيَا مِنْ أَعْظَمِ الِاخْتِرَاعَاتِ لَدَى الْإِنْسَانِ"},{"k":"c","ar":"يَجِبُ إِيقَافُ تَطْوِيرِهَا"},{"k":"d","ar":"تَزْدَادُ جَوْدَتُهَا بِالْحِمَايَةِ الْقَوِيَّةِ"},{"k":"e","ar":"تَجْلِبُ فَوَائِدَ كَبِيرَةً لِمَصْلَحَةِ الْأُمَّةِ"}],"ans":["b","d","e"],"why":"Paragraf 5 menyimpulkan: TIK termasuk penemuan terbesar, membawa manfaat besar bagi umat, dan mutunya meningkat ketika dilindungi dengan kuat.","par":5},
+{"id":"k11","sec":"pgk","topic":"i4","lvl":1,"q":"اِخْتَرِ الْأَفْعَالَ الَّتِي يُصَاغُ مِنْهَا اسْمُ التَّفْضِيلِ.","opts":[{"k":"a","ar":"لَيْسَ"},{"k":"b","ar":"صَارَ"},{"k":"c","ar":"كَرُمَ"},{"k":"d","ar":"عَلِمَ"},{"k":"e","ar":"سَهُلَ"}],"ans":["c","d","e"],"why":"<span class=\"ar\" lang=\"ar\" dir=\"rtl\">كَرُمَ</span> → <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَكْرَمُ</span>, <span class=\"ar\" lang=\"ar\" dir=\"rtl\">عَلِمَ</span> → <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَعْلَمُ</span>, <span class=\"ar\" lang=\"ar\" dir=\"rtl\">سَهُلَ</span> → <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَسْهَلُ</span> memenuhi syarat. «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">صَارَ</span>» fi'il naqish dan «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">لَيْسَ</span>» fi'il jamid, jadi tidak bisa."},
+{"id":"k12","sec":"pgk","topic":"i4","lvl":3,"q":"اِخْتَرِ الْكَلِمَاتِ الَّتِي عَلَى وَزْنِ «أَفْعَلُ» وَلٰكِنَّهَا لَيْسَتِ اسْمَ تَفْضِيلٍ (تَدُلُّ عَلَى لَوْنٍ أَوْ عَيْبٍ أَوْ حِلْيَةٍ).","opts":[{"k":"a","ar":"أَحْمَرُ"},{"k":"b","ar":"أَشْيَبُ"},{"k":"c","ar":"أَعْرَجُ"},{"k":"d","ar":"أَقْوَى"},{"k":"e","ar":"أَفْضَلُ"}],"ans":["a","b","c"],"why":"<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَحْمَرُ</span> (warna), <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَعْرَجُ</span> (cacat), <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَشْيَبُ</span> (ciri/hiasan: beruban) berwazan <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَفْعَلُ</span> tetapi merupakan sifat, bukan isim tafdhil (buku hlm. 13). <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَفْضَلُ</span> dan <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَقْوَى</span> adalah isim tafdhil."},
+{"id":"k13","sec":"pgk","topic":"i5","lvl":2,"q":"اِخْتَرِ الْجُمَلَ الَّتِي فِيهَا اسْمُ التَّفْضِيلِ مُجَرَّدٌ مِنْ «أَلْ» وَالْإِضَافَةِ (يَتْبَعُهُ «مِنْ»).","opts":[{"k":"a","ar":"هَاتَانِ أَنْفَعُ مِنْ هَاتَيْنِ"},{"k":"b","ar":"خَالِدٌ أَمْهَرُ مِنْ سَعِيدٍ"},{"k":"c","ar":"هُوَ الْأَفْضَلُ"},{"k":"d","ar":"عَلِيٌّ أَفْضَلُ الْقَوْمِ"},{"k":"e","ar":"الْمُجَاهِدُونَ أَفْضَلُ مِنَ الْقَاعِدِينَ"}],"ans":["a","b","e"],"why":"Keadaan 1 ditandai «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">مِنْ</span>» pembanding setelah isim tafdhil. «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">الْأَفْضَلُ</span>» berawalan «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَلْ</span>» (keadaan 2); «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَفْضَلُ الْقَوْمِ</span>» di-idhafah-kan ke ma'rifah (keadaan 3)."},
+{"id":"k14","sec":"pgk","topic":"i5","lvl":2,"q":"اِخْتَرِ الْجُمَلَ الصَّحِيحَةَ فِي اسْتِخْدَامِ اسْمِ التَّفْضِيلِ الْمُقْتَرِنِ بِـ «أَلْ».","opts":[{"k":"a","ar":"هُمَا الْأَفْضَلَانِ"},{"k":"b","ar":"هُمَا الْفُضْلَى"},{"k":"c","ar":"هِيَ الْفُضْلَى"},{"k":"d","ar":"هُنَّ الْأَفْضَلُ"},{"k":"e","ar":"هُمُ الْأَفْضَلُونَ"}],"ans":["a","c","e"],"why":"Pada keadaan 2 isim tafdhil mengikuti mausuf: mufrad muannats → <span class=\"ar\" lang=\"ar\" dir=\"rtl\">الْفُضْلَى</span>, mutsanna mudzakkar → <span class=\"ar\" lang=\"ar\" dir=\"rtl\">الْأَفْضَلَانِ</span>, jamak mudzakkar → <span class=\"ar\" lang=\"ar\" dir=\"rtl\">الْأَفْضَلُونَ</span>. «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">هُنَّ الْأَفْضَلُ</span>» (jamak muannats) dan «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">هُمَا الْفُضْلَى</span>» (mutsanna) tidak sesuai."},
+{"id":"k15","sec":"pgk","topic":"i5","lvl":3,"q":"أَكْمِلِ الْفَرَاغَ بِكُلِّ مَا يَصِحُّ: «هُمَا ____ الْقَوْمِ.»","opts":[{"k":"a","ar":"أَفْضَلُ"},{"k":"b","ar":"أَفْضَلَا"},{"k":"c","ar":"الْأَفْضَلَانِ"},{"k":"d","ar":"أَفْضَلُونَ"},{"k":"e","ar":"فُضْلَيَانِ"}],"ans":["a","b"],"why":"Keadaan 3 (idhafah ke ma'rifah): boleh tetap mufrad «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَفْضَلُ الْقَوْمِ</span>» atau mengikuti mausuf (mutsanna mudzakkar) «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَفْضَلَا الْقَوْمِ</span>». «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">الْأَفْضَلَانِ</span>» tidak boleh karena isim tafdhil yang di-idhafah-kan tidak boleh berawalan «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَلْ</span>»; sisanya tidak sesuai jenis atau jumlah."},
+{"id":"k16","sec":"pgk","topic":"i5","lvl":2,"q":"اِخْتَرِ الْجُمَلَ الصَّحِيحَةَ (إِضَافَةُ اسْمِ التَّفْضِيلِ إِلَى نَكِرَةٍ).","opts":[{"k":"a","ar":"فَاطِمَةُ فُضْلَى امْرَأَةٍ"},{"k":"b","ar":"فَاطِمَةُ أَفْضَلُ امْرَأَةٍ"},{"k":"c","ar":"هَاتَانِ أَفْضَلَتَانِ امْرَأَتَيْنِ"},{"k":"d","ar":"هَاتَانِ أَفْضَلُ امْرَأَتَيْنِ"},{"k":"e","ar":"خَالِدٌ أَفْضَلُ قَائِدٍ"}],"ans":["b","d","e"],"why":"Keadaan 4: isim tafdhil tetap mufrad mudzakkar; yang berubah jenis atau jumlahnya adalah nakirah sesudahnya (<span class=\"ar\" lang=\"ar\" dir=\"rtl\">قَائِدٍ</span>, <span class=\"ar\" lang=\"ar\" dir=\"rtl\">امْرَأَةٍ</span>, <span class=\"ar\" lang=\"ar\" dir=\"rtl\">امْرَأَتَيْنِ</span>). «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">فُضْلَى امْرَأَةٍ</span>» dan «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَفْضَلَتَانِ</span>» melanggar aturan itu."},
+{"id":"k17","sec":"pgk","topic":"i6","lvl":3,"q":"اِخْتَرِ الْأَفْعَالَ الَّتِي نَسْتَخْدِمُ مَعَهَا «أَشَدَّ» أَوْ «أَكْثَرَ» مَعَ الْمَصْدَرِ لِلتَّفْضِيلِ.","opts":[{"k":"a","ar":"اِحْمَرَّ"},{"k":"b","ar":"سَهُلَ"},{"k":"c","ar":"اِنْتَشَرَ"},{"k":"d","ar":"عَمِيَ"},{"k":"e","ar":"كَرُمَ"}],"ans":["a","c","d"],"why":"«<span class=\"ar\" lang=\"ar\" dir=\"rtl\">اِنْتَشَرَ</span>» (bukan tsulatsi), «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">اِحْمَرَّ</span>» (warna), «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">عَمِيَ</span>» (cacat) tidak bisa langsung diubah ke <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَفْعَلُ</span>, sehingga memakai <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَشَدّ</span>/<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَكْثَر</span> + mashdar. «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">سَهُلَ</span>» dan «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">كَرُمَ</span>» bisa langsung: <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَسْهَلُ</span>, <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَكْرَمُ</span>."},
+{"id":"k18","sec":"pgk","topic":"i6","lvl":3,"q":"اِخْتَرِ الْجُمَلَ الصَّحِيحَةَ الَّتِي تَسْتَخْدِمُ «أَشَدَّ» أَوْ «أَكْثَرَ» مَعَ الْمَصْدَرِ.","opts":[{"k":"a","ar":"هٰذِهِ الْأَجْهِزَةُ أَكْثَرُ اسْتِعْمَالًا مِنْ تِلْكَ"},{"k":"b","ar":"هٰذَا الْهَاتِفُ أَشَدُّ بَيَاضٌ مِنْ ذٰلِكَ"},{"k":"c","ar":"الْجَرِيمَةُ أَكْثَرُ انْتَشَرَ مِنْ قَبْلُ"},{"k":"d","ar":"هُمَا أَشَدَّانِ بَيَاضًا"},{"k":"e","ar":"هٰذَا الْهَاتِفُ أَشَدُّ بَيَاضًا مِنْ ذٰلِكَ"}],"ans":["a","e"],"why":"Mashdar setelah <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَشَدّ</span>/<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَكْثَر</span> berkedudukan mansub (tamyiz) dan <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَشَدّ</span>/<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَكْثَر</span> tidak berubah bentuk. «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">بَيَاضٌ</span>» salah harakat, «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">انْتَشَرَ</span>» adalah fi'il bukan mashdar, dan «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَشَدَّانِ</span>» salah karena tidak boleh dimutsannakan."},
+{"id":"k19","sec":"pgk","topic":"i7","lvl":2,"q":"اِخْتَرِ الْكَلِمَاتِ الَّتِي هِيَ اسْمُ تَفْضِيلٍ فِي النَّصِّ.","opts":[{"k":"a","ar":"أَسْرَعَ"},{"k":"b","ar":"أَصْبَحَتْ"},{"k":"c","ar":"أَهَمِّ"},{"k":"d","ar":"أَخْطَرِ"},{"k":"e","ar":"أَحْيَانًا"}],"ans":["a","c","d"],"why":"<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَهَمّ</span>, <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَسْرَع</span>, <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَخْطَر</span> adalah isim tafdhil (dari «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَهَمِّ الِاخْتِرَاعَاتِ</span>», «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَسْهَلَ وَأَسْرَعَ</span>», «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَخْطَرِ الْأَخْطَارِ</span>»). «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَحْيَانًا</span>» (keterangan, jamak «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">حِين</span>») dan «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَصْبَحَتْ</span>» (fi'il madhi) hanya mirip wazan <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَفْعَل</span>.","txt":1},
+{"id":"k20","sec":"pgk","topic":"i7","lvl":3,"q":"اِخْتَرِ التَّحْلِيلَ الصَّحِيحَ لِحَالَةِ اسْمِ التَّفْضِيلِ فِي الْعِبَارَاتِ الْمُقْتَبَسَةِ مِنَ النَّصِّ.","opts":[{"k":"a","ar":"«الِاسْتِفَادَةِ الْفُضْلَى»: مُقْتَرِنٌ بِأَلْ"},{"k":"b","ar":"«أَكْثَرَ أَمَانًا»: مُضَافٌ إِلَى نَكِرَةٍ"},{"k":"c","ar":"«أَسْهَلَ وَأَسْرَعَ مِنْ أَيِّ وَقْتٍ»: مُقْتَرِنٌ بِأَلْ"},{"k":"d","ar":"«أَعْظَمِ الِاخْتِرَاعَاتِ»: مُضَافٌ إِلَى مَعْرِفَةٍ"},{"k":"e","ar":"«أَقْوَى الْوَسَائِلِ»: مُضَافٌ إِلَى مَعْرِفَةٍ"}],"ans":["a","d","e"],"why":"«<span class=\"ar\" lang=\"ar\" dir=\"rtl\">الْفُضْلَى</span>» berawalan «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَلْ</span>» (keadaan 2); «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَقْوَى الْوَسَائِلِ</span>» dan «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَعْظَمِ الِاخْتِرَاعَاتِ</span>» di-idhafah-kan ke ma'rifah (keadaan 3). «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَسْهَلَ وَأَسْرَعَ</span>» keadaan 1 (diikuti «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">مِنْ</span>»); «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَكْثَرَ أَمَانًا</span>» adalah <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَكْثَر</span> + mashdar (tamyiz), bukan idhafah.","txt":1},
+{"id":"b1","sec":"bs","topic":"i1","lvl":1,"q":"تَقَدَّمَتْ تِكْنُولُوجِيَا الْإِعْلَامِ وَالِاتِّصَالِ وَبَلَغَتْ مُنْتَهَاهَا.","ans":["F"],"why":"Teks: «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">وَلٰكِنَّهَا لَمْ تَبْلُغْ مُنْتَهَاهَا بَعْدُ</span>» — belum mencapai batas akhir.","txt":1},
+{"id":"b2","sec":"bs","topic":"i1","lvl":1,"q":"بِوُجُودِ الْإِنْتَرْنِتِ أَصْبَحَ الْوُصُولُ إِلَى الْمَعْلُومَاتِ أَسْهَلَ وَأَسْرَعَ.","ans":["T"],"why":"Sesuai kalimat contoh di paragraf 1.","txt":1},
+{"id":"b3","sec":"bs","topic":"i1","lvl":2,"q":"يَسْتَخْدِمُ جَمِيعُ النَّاسِ الْهَاتِفَ الذَّكِيَّ لِلْأَعْمَالِ الْإِيجَابِيَّةِ فَقَطْ.","ans":["F"],"why":"Paragraf 2: sebagian memakainya untuk hal positif, sebagian hanya untuk hiburan dan permainan; kata «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">فَقَطْ</span>» menjadikan pernyataan salah.","txt":1},
+{"id":"b4","sec":"bs","topic":"i1","lvl":1,"q":"تِكْنُولُوجِيَا الْإِعْلَامِ وَالِاتِّصَالِ الْحَدِيثَةُ سِلَاحٌ ذُو حَدَّيْنِ.","ans":["T"],"why":"Kalimat pembuka paragraf 3.","txt":1},
+{"id":"b5","sec":"bs","topic":"i1","lvl":2,"q":"يَجْعَلُ بَعْضُ النَّاسِ الْإِنْتَرْنِتَ وَسِيلَةً لِتَيْسِيرِ مَسَالِكِ الشَّرِّ.","ans":["T"],"why":"Paragraf 3 menyebut penyalahgunaan oleh sebagian orang sebagai sumber masalah dari luar diri.","txt":1},
+{"id":"b6","sec":"bs","topic":"i1","lvl":2,"q":"تَنْشَأُ كُلُّ الْمُشْكِلَاتِ مِنْ خَارِجِ النَّفْسِ.","ans":["F"],"why":"Teks membedakan dua sumber: dari dalam diri (kecanduan) dan dari luar (penyalahgunaan). Kata «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">كُلُّ</span>» membuatnya salah.","txt":1},
+{"id":"b7","sec":"bs","topic":"i2","lvl":2,"q":"يَرَى الْكَاتِبُ أَنَّ الْحُكُومَةَ لَا دَوْرَ لَهَا فِي حِمَايَةِ الْمُسْتَخْدِمِينَ.","ans":["F"],"why":"Paragraf 4: «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">يَنْبَغِي لِلْحُكُومَةِ أَنْ تَتَّخِذَ خُطُوَاتٍ عَمَلِيَّةً فَعَّالَةً لِحِمَايَةِ الْمُسْتَخْدِمِينَ</span>» — pemerintah punya peran.","txt":1},
+{"id":"b8","sec":"bs","topic":"i3","lvl":1,"q":"الْأُطْرُوحَةُ فِي النَّصِّ الْحِجَاجِيِّ هِيَ الْقَضِيَّةُ الرَّئِيسَةُ الَّتِي يَطْرَحُهَا الْكَاتِبُ.","ans":["T"],"why":"Buku hlm. 18: tesis = pernyataan yang dikemukakan sebagai isu utama."},
+{"id":"b9","sec":"bs","topic":"i3","lvl":2,"q":"تَأْتِي النَّتِيجَةُ دَائِمًا فِي أَوَّلِ النَّصِّ الْحِجَاجِيِّ.","ans":["F"],"why":"<span class=\"ar\" lang=\"ar\" dir=\"rtl\">النَّتِيجَة</span> adalah pernyataan akhir yang ditarik sebagai simpulan, bukan pembuka. Pada teks bab ini ia ada di paragraf terakhir."},
+{"id":"b10","sec":"bs","topic":"i3","lvl":1,"q":"الْحِجَاجُ هُوَ تَطْوِيرُ الْفِكْرَةِ بِالْأَدِلَّةِ وَالْبَرَاهِينِ.","ans":["T"],"why":"Buku hlm. 18: argumen (<span class=\"ar\" lang=\"ar\" dir=\"rtl\">الْحِجَاج</span>) adalah pengembangan gagasan yang diperkuat alasan (<span class=\"ar\" lang=\"ar\" dir=\"rtl\">الْأَدِلَّة</span>) dan bukti (<span class=\"ar\" lang=\"ar\" dir=\"rtl\">الْبَرَاهِين</span>)."},
+{"id":"b11","sec":"bs","topic":"i4","lvl":1,"q":"وَزْنُ اسْمِ التَّفْضِيلِ لِلْمُؤَنَّثِ هُوَ «فُعْلَى».","ans":["T"],"why":"Buku hlm. 12: <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَفْعَلُ</span> untuk mudzakkar, <span class=\"ar\" lang=\"ar\" dir=\"rtl\">فُعْلَى</span> untuk muannats."},
+{"id":"b12","sec":"bs","topic":"i4","lvl":1,"q":"يُصَاغُ اسْمُ التَّفْضِيلِ مِنَ الْفِعْلِ الْجَامِدِ مِثْلِ «لَيْسَ».","ans":["F"],"why":"Fi'il jamid tidak mutasharrif sehingga tidak memenuhi syarat shiyaghah (buku hlm. 13)."},
+{"id":"b13","sec":"bs","topic":"i5","lvl":1,"q":"فِي الْجُمْلَةِ «خَالِدٌ أَمْهَرُ مِنْ سَعِيدٍ» اسْمُ التَّفْضِيلِ مُجَرَّدٌ مِنْ «أَلْ» وَالْإِضَافَةِ.","ans":["T"],"why":"Contoh keadaan 1 pada tabel buku hlm. 12; «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">مِنْ سَعِيدٍ</span>» adalah mufadhdhal 'alaih."},
+{"id":"b14","sec":"bs","topic":"i4","lvl":2,"q":"«أَحْمَرُ» اسْمُ تَفْضِيلٍ مِنَ الْفِعْلِ «اِحْمَرَّ».","ans":["F"],"why":"«<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَحْمَرُ</span>» menunjukkan warna sehingga merupakan sifat (shifah musyabbahah), bukan isim tafdhil. Syarat: tidak menunjukkan warna, cacat, atau hiasan."},
+{"id":"b15","sec":"bs","topic":"i5","lvl":2,"q":"نَقُولُ: «فَاطِمَةُ فُضْلَى مِنْ عَائِشَةَ».","ans":["F"],"why":"Bila diikuti «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">مِنْ</span>» (keadaan 1), isim tafdhil tetap mufrad mudzakkar: «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">فَاطِمَةُ أَفْضَلُ مِنْ عَائِشَةَ</span>»."},
+{"id":"b16","sec":"bs","topic":"i5","lvl":2,"q":"إِذَا اقْتَرَنَ اسْمُ التَّفْضِيلِ بِـ «أَلْ» وَجَبَتْ مُطَابَقَتُهُ لِلْمَوْصُوفِ فِي الْجِنْسِ وَالْعَدَدِ.","ans":["T"],"why":"Keadaan 2: <span class=\"ar\" lang=\"ar\" dir=\"rtl\">هُوَ الْأَفْضَلُ، هِيَ الْفُضْلَى، هُمَا الْأَفْضَلَانِ، هُنَّ الْفُضْلَيَاتُ</span>."},
+{"id":"b17","sec":"bs","topic":"i5","lvl":3,"q":"يَجُوزُ فِي الْإِضَافَةِ إِلَى مَعْرِفَةٍ أَنْ يَبْقَى اسْمُ التَّفْضِيلِ مُفْرَدًا مُذَكَّرًا أَوْ أَنْ يُطَابِقَ الْمَوْصُوفَ.","ans":["T"],"why":"Buku hlm. 12 memberi dua bentuk: «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">فَاطِمَةُ أَفْضَلُ النِّسَاءِ وَفُضْلَى النِّسَاءِ</span>», «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">هُمَا أَفْضَلَا الْقَوْمِ</span>»."},
+{"id":"b18","sec":"bs","topic":"i5","lvl":3,"q":"فِي الْإِضَافَةِ إِلَى نَكِرَةٍ يُطَابِقُ اسْمُ التَّفْضِيلِ الْمَوْصُوفَ، مِثْلُ: «هَاتَانِ أَفْضَلَتَانِ امْرَأَتَيْنِ».","ans":["F"],"why":"Pada keadaan 4 isim tafdhil tetap mufrad mudzakkar: «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">هَاتَانِ أَفْضَلُ امْرَأَتَيْنِ</span>»; yang mengikuti mausuf adalah nakirah sesudahnya."},
+{"id":"b19","sec":"bs","topic":"i6","lvl":2,"q":"نَسْتَخْدِمُ «أَشَدَّ» أَوْ «أَكْثَرَ» مَعَ مَصْدَرِ الْفِعْلِ لِلتَّفْضِيلِ مِنَ الْفِعْلِ الَّذِي لَا يَسْتَوْفِي شُرُوطَ الصَّوْغِ.","ans":["T"],"why":"Buku hlm. 13 menganjurkan <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَشَدّ</span>/<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَكْثَر</span> + mashdar bila syarat shiyaghah tidak terpenuhi. Contoh susunan penyusun: «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَكْثَرُ انْتِشَارًا</span>», «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَشَدُّ بَيَاضًا</span>»."},
+{"id":"b20","sec":"bs","topic":"i7","lvl":3,"q":"«أَكْثَرَ أَمَانًا» فِي النَّصِّ اسْمُ تَفْضِيلٍ عَلَى وَزْنِ «فُعْلَى».","ans":["F"],"why":"«<span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَكْثَرَ أَمَانًا</span>» = <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَكْثَر</span> + mashdar/tamyiz, berwazan <span class=\"ar\" lang=\"ar\" dir=\"rtl\">أَفْعَلُ</span> (bukan <span class=\"ar\" lang=\"ar\" dir=\"rtl\">فُعْلَى</span>, yang khusus muannats seperti «<span class=\"ar\" lang=\"ar\" dir=\"rtl\">الْفُضْلَى</span>»).","txt":1}
+];
+const EXS = [{"s":"خَالِدٌ أَمْهَرُ مِنْ سَعِيدٍ","k":1},{"s":"هَاتَانِ أَنْفَعُ مِنْ هَاتَيْنِ","k":1},{"s":"الْمُجَاهِدُونَ أَفْضَلُ مِنَ الْقَاعِدِينَ","k":1},{"s":"الْمُتَعَلِّمَاتُ أَفْضَلُ مِنَ الْجَاهِلَاتِ","k":1},{"s":"هُوَ الْأَفْضَلُ","k":2},{"s":"هِيَ الْفُضْلَى","k":2},{"s":"هُمَا الْأَفْضَلَانِ","k":2},{"s":"هُمُ الْأَفْضَلُونَ","k":2},{"s":"هُنَّ الْفُضْلَيَاتُ","k":2},{"s":"الطَّالِبَتَانِ هُمَا الْفُضْلَيَانِ","k":2},{"s":"عَلِيٌّ أَفْضَلُ الْقَوْمِ","k":3},{"s":"هُمَا أَفْضَلَا الْقَوْمِ","k":3},{"s":"فَاطِمَةُ أَفْضَلُ النِّسَاءِ وَفُضْلَى النِّسَاءِ","k":3},{"s":"هُنَّ أَفْضَلُ النِّسَاءِ وَفُضْلَيَاتُ النِّسَاءِ","k":3},{"s":"خَالِدٌ أَفْضَلُ قَائِدٍ","k":4},{"s":"فَاطِمَةُ أَفْضَلُ امْرَأَةٍ","k":4},{"s":"هٰذَانِ أَفْضَلُ رَجُلَيْنِ","k":4},{"s":"هَاتَانِ أَفْضَلُ امْرَأَتَيْنِ","k":4},{"s":"الْمُتَعَلِّمَاتُ أَفْضَلُ نِسَاءٍ","k":4}];
+const RULES = {"1":{"name":"Mujarrad dari «أَلْ» dan idhafah (diikuti «مِنْ»)","rule":"Selalu mufrad mudzakkar, tidak berubah menurut mausuf."},"2":{"name":"Muqtarin bi-«أَلْ»","rule":"Wajib sesuai mausuf dalam jenis dan jumlah."},"3":{"name":"Mudhaf ke ma'rifah","rule":"Boleh tetap mufrad mudzakkar atau sesuai mausuf."},"4":{"name":"Mudhaf ke nakirah","rule":"Wajib mufrad mudzakkar; yang sesuai mausuf adalah nakirah sesudahnya."}};
+/* ===================== LAB BELAJAR ===================== */
+const LABS = [
+  { id: 'peta', ic: 'T', col: 'y', ar: 'خَرِيطَةُ النَّصِّ', t: 'Peta teks', d: 'Tesis, argumen, dan hasil pada teks bacaan, lengkap dengan penanda wacana. Mengikuti modul H.3.' },
+  { id: 'pohon', ic: '4', col: 'c', ar: 'شَجَرَةُ الْقَرَارِ', t: 'Pohon keputusan', d: 'Tentukan keadaan isim tafdhil lewat empat pertanyaan, lalu latih memilah kalimat contoh. Mengikuti modul I.3 dan O.1.' },
+  { id: 'kartu', ic: '✓', col: 'm', ar: 'بِطَاقَاتُ الْأَفْعَالِ', t: 'Kartu fi\'il', d: 'Pilah fi\'il yang bisa dan tidak bisa dibentuk isim tafdhil, lalu sebutkan syarat yang gagal. Mengikuti modul I.2 dan O.1.' }
+];
+const L = { tab: 'peta', focus: null, mk: true, tree: { step: 0, res: null }, drill: null, cards: null };
+
+/* ---------- peta teks (modul H.3) ---------- */
+const MK = [['عَلَى سَبِيلِ الْمِثَالِ', 'contoh'], ['كَمَا', 'tambahan'], ['وَكَذٰلِكَ', 'tambahan'], ['وَلٰكِنْ', 'kontras'], ['اِنْطِلَاقًا مِنْ هٰذِهِ الْمَظَاهِرِ', 'dasar menuju usulan'], ['لِذٰلِكَ', 'kesimpulan']];
+const PINFO = {
+  t: { ar: 'الْأُطْرُوحَةُ', id: 'Tesis', def: 'Pernyataan yang dikemukakan sebagai isu utama.', loc: 'Kalimat pertama paragraf 1.' },
+  a: { ar: 'الْحِجَاجُ', id: 'Argumen', def: 'Pengembangan gagasan yang diperkuat alasan (الْأَدِلَّة) dan bukti (الْبَرَاهِين).', loc: 'Manfaat dan contohnya (paragraf 1–2), bahaya dan sumbernya (paragraf 3), usulan perlindungan (paragraf 4).' },
+  r: { ar: 'النَّتِيجَةُ', id: 'Hasil / kesimpulan', def: 'Pernyataan akhir yang dapat ditarik sebagai kesimpulan.', loc: 'Paragraf 5, diawali «لِذٰلِكَ».' }
+};
+function markUp(s) {
+  let out = s;
+  MK.forEach(([w, f]) => { out = out.replace(new RegExp('(^|\\s)(' + w + ')(?=[\\s،.]|$)', 'g'), (m, a, b) => `${a}<mark class="mk" title="${f}">${b}</mark>`); });
+  return out;
+}
+function petaHTML() {
+  const P = TXT.paras, sg = (c, s) => `<span class="seg2 ${c}">${markUp(s)}</span>`;
+  const i0 = P[0].indexOf('. ');
+  const rows = [sg('t', P[0].slice(0, i0 + 1)) + ' ' + sg('a', P[0].slice(i0 + 2)), sg('a', P[1]), sg('a', P[2]), sg('a', P[3]), sg('r', P[4])];
+  const F = L.focus, inf = F ? PINFO[F] : null;
+  const chips = ['t', 'a', 'r'].map(k => `<button type="button" class="chip ${k}" data-act="focus" data-k="${k}" aria-pressed="${F === k}"><span class="ar" lang="ar">${PINFO[k].ar}</span><span>${PINFO[k].id}</span></button>`).join('') +
+    `<button type="button" class="chip" data-act="focus" data-k="" aria-pressed="${!F}">Semua</button>`;
+  const info = inf ? `<div class="info"><h4>${inf.id} · <span class="ar" lang="ar">${inf.ar}</span></h4><p><b>Pengertian (buku hlm. 18):</b> ${wrapAr(inf.def)}</p><p style="margin:0"><b>Letak pada teks (usulan penyusun modul):</b> ${wrapAr(inf.loc)}</p></div>`
+    : `<div class="info"><p style="margin:0">Pilih salah satu unsur untuk menyorotnya. Menurut buku hlm. 18, teks argumentatif bertujuan meyakinkan sekaligus mempengaruhi pembaca atas suatu gagasan, disertai alasan dan bukti, hingga sampai pada kesimpulan.</p></div>`;
+  const mkl = `<div class="mkl">${MK.map(([w, f]) => `<span><span class="ar" lang="ar">${w}</span> · ${f}</span>`).join('')}</div>`;
+  return `<div class="chips" role="group" aria-label="Sorot unsur teks">${chips}</div>${info}
+    <label class="sw" style="margin:0 0 8px"><input type="checkbox" data-act="mk"${L.mk ? ' checked' : ''}><span class="tg" aria-hidden="true"></span><span>Garis bawahi penanda wacana</span></label>
+    <div class="pm${L.mk ? '' : ' nomk'}"${F ? ` data-f="${F}"` : ''}>
+      <div class="ttl" lang="ar">${TXT.title}</div>
+      ${rows.map((r, i) => `<div class="pr"><span class="n" aria-label="Paragraf ${i + 1}">${i + 1}</span><div class="ar" lang="ar" dir="rtl">${r}</div></div>`).join('')}
+    </div>
+    ${L.mk ? `<div class="info" style="margin-top:12px"><h4>Penanda wacana (disusun penyusun dari teks)</h4>${mkl}</div>` : ''}
+    <p class="note" style="margin:10px 0 0">Pemetaan kalimat demi kalimat ini adalah usulan penyusun modul. Buku (hlm. 19) memetakannya pada versi ringkas teks yang sama: kalimat pertama sebagai tesis, paragraf tengah sebagai argumen, dan paragraf terakhir sebagai hasil.</p>`;
+}
+
+/* ---------- pohon keputusan (modul I.3 dan O.1) ---------- */
+const TREE = [
+  { q: 'Setelah isim tafdhil, adakah «مِنْ» pembanding?', k: 1 },
+  { q: 'Apakah isim tafdhil berawalan «أَلْ»?', k: 2 },
+  { q: 'Apakah isim tafdhil di-idhafah-kan kepada ma\'rifah?', k: 3 },
+  { q: 'Apakah isim tafdhil di-idhafah-kan kepada nakirah?', k: 4 }
+];
+const KLAB = { 1: 'مُجَرَّدٌ مِنْ أَلْ وَالْإِضَافَةِ', 2: 'مُقْتَرِنٌ بِأَلْ', 3: 'مُضَافٌ إِلَى مَعْرِفَةٍ', 4: 'مُضَافٌ إِلَى نَكِرَةٍ' };
+function pohonHTML() {
+  const T = L.tree, st = [0, 1, 2, 3].map(i => `<i class="${T.res !== null ? 'done' : i === T.step ? 'on' : i < T.step ? 'done' : ''}"></i>`).join('');
+  let body;
+  if (T.res === null) body = `<p class="qline">Pertanyaan ${T.step + 1} dari 4</p><p class="qline" style="font-size:18px">${wrapAr(TREE[T.step].q)}</p>
+    <div class="ynrow"><button type="button" class="btn go" data-act="yes">Ya</button><button type="button" class="btn" data-act="no">Tidak</button></div>`;
+  else if (T.res === 0) body = `<div class="fbx no"><b>Bukan salah satu dari empat keadaan.</b>Periksa lagi apakah kata itu benar-benar isim tafdhil, atau susunan ${A('أَشَدّ')} / ${A('أَكْثَر')} + mashdar (tamyiz), seperti ${A('أَكْثَرَ أَمَانًا')}.</div><button type="button" class="btn pri" data-act="treset">Mulai lagi</button>`;
+  else {
+    const ex = EXS.filter(e => e.k === T.res);
+    body = `<div class="res4"><div class="rh">Keadaan ${T.res} · ${wrapAr(RULES[T.res].name)}</div><div class="rb"><p>${wrapAr(RULES[T.res].rule)}</p>${ex.map(e => `<span class="ex ar" lang="ar" dir="rtl">${e.s}</span>`).join('')}</div></div><button type="button" class="btn pri" data-act="treset">Mulai lagi</button>`;
+  }
+  return `<h3 style="margin-bottom:8px">Pohon keputusan isim tafdhil</h3><div class="steps" aria-hidden="true">${st}</div>${body}${drillHTML()}`;
+}
+function newDrill() { L.drill = { order: shuffle(EXS.map((_, i) => i)), i: 0, ok: 0, n: 0, pick: null }; }
+function drillHTML() {
+  if (!L.drill) newDrill();
+  const D = L.drill;
+  if (D.i >= D.order.length) return `<hr style="border:0;border-top:2.5px dashed var(--line);margin:18px 0"><h3 style="margin-bottom:6px">Latihan memilah kalimat</h3><div class="fbx ok"><b>Selesai: ${D.ok} dari ${D.n} benar.</b>Semua ${EXS.length} kalimat contoh dari modul (bagian I.3) sudah dipilah.</div><button type="button" class="btn pri" data-act="dnew">Ulangi dengan urutan baru</button>`;
+  const e = EXS[D.order[D.i]], done = D.pick !== null;
+  const btns = [1, 2, 3, 4].map(k => `<button type="button" class="btn${done ? (k === e.k ? ' ok' : k === D.pick ? ' no' : '') : ''}" data-act="dpick" data-k="${k}"${done ? ' disabled' : ''}><span class="ar" lang="ar">${KLAB[k]}</span><span>Keadaan ${k}</span></button>`).join('');
+  const fb = done ? `<div class="fbx ${D.pick === e.k ? 'ok' : 'no'}"><b>${D.pick === e.k ? 'Benar.' : 'Belum tepat. Jawaban: keadaan ' + e.k + '.'}</b>${wrapAr(RULES[e.k].name)}. ${wrapAr(RULES[e.k].rule)}</div><button type="button" class="btn go" data-act="dnext">${D.i === D.order.length - 1 ? 'Lihat hasil' : 'Kalimat berikutnya'}</button>` : '';
+  return `<hr style="border:0;border-top:2.5px dashed var(--line);margin:18px 0"><h3 style="margin-bottom:6px">Latihan memilah kalimat</h3>
+    <div class="scoreline"><span>Kalimat ${D.i + 1} dari ${D.order.length}</span><span>Benar ${D.ok} dari ${D.n}</span></div>
+    <p class="qline">Tentukan keadaan isim tafdhil pada kalimat ini:</p>
+    <div class="big" lang="ar" dir="rtl">${e.s}</div><div class="dr4">${btns}</div>${fb}`;
+}
+
+/* ---------- kartu fi'il (modul I.2 dan O.1) ---------- */
+const SY = [
+  { c: 'ts', ar: 'ثُلَاثِيٌّ', id: 'Tsulatsi (tiga huruf asli)' },
+  { c: 'jm', ar: 'مُتَصَرِّفٌ', id: 'Mutasharrif (bukan jamid)' },
+  { c: 'pa', ar: 'مَعْلُومٌ', id: 'Ma\'lum (bukan pasif)' },
+  { c: 'nq', ar: 'تَامٌّ', id: 'Tam (bukan naqish)' },
+  { c: 'mu', ar: 'مُثْبَتٌ', id: 'Mutsbat dan qabil lit-tafdhil' },
+  { c: 'wc', ar: 'لَوْنٌ · عَيْبٌ · حِلْيَةٌ', id: 'Bukan warna, cacat, atau hiasan' }
+];
+const CARDS = [
+  { v: 'كَرُمَ', ok: 1, form: 'أَكْرَمُ' }, { v: 'سَهُلَ', ok: 1, form: 'أَسْهَلُ' }, { v: 'قَوِيَ', ok: 1, form: 'أَقْوَى' }, { v: 'عَلِمَ', ok: 1, form: 'أَعْلَمُ' },
+  { v: 'اِنْتَشَرَ', why: ['ts'], alt: 'أَكْثَرُ انْتِشَارًا' }, { v: 'اِسْتَخْرَجَ', why: ['ts'] }, { v: 'لَيْسَ', why: ['jm'] }, { v: 'عَسَى', why: ['jm'] },
+  { v: 'كَانَ', why: ['nq'] }, { v: 'كُرِمَ', why: ['pa'] }, { v: 'عَمِيَ', why: ['wc'], note: 'menunjukkan cacat; sifatnya أَعْمَى, bukan isim tafdhil' },
+  { v: 'اِحْمَرَّ', why: ['wc', 'ts'], note: 'menunjukkan warna, dan juga bukan tsulatsi mujarrad' }
+];
+function newCards() { L.cards = { order: shuffle(CARDS.map((_, i) => i)), i: 0, ok: 0, n: 0, phase: 'a', right: null, msg: '' }; }
+const syNames = c => c.why.map(w => SY.find(s => s.c === w)).map(s => `${A(s.ar)} (${s.id})`).join(' atau ');
+function cardsHTML() {
+  if (!L.cards) newCards();
+  const C = L.cards;
+  if (C.i >= C.order.length) return `<h3 style="margin-bottom:8px">Kartu fi'il</h3><div class="fbx ok"><b>Selesai: ${C.ok} dari ${C.n} kartu dipilah dengan benar.</b>Satu kartu dihitung benar bila keputusan dan syarat yang gagal sama-sama tepat.</div><button type="button" class="btn pri" data-act="cnew">Ulangi dengan urutan baru</button>`;
+  const c = CARDS[C.order[C.i]];
+  let body = '';
+  if (C.phase === 'a') body = `<p class="qline">Bisakah fi'il ini dibentuk menjadi isim tafdhil berwazan ${A('أَفْعَلُ')} secara langsung?</p><div class="ynrow"><button type="button" class="btn go" data-act="cy">Bisa</button><button type="button" class="btn" data-act="cn">Tidak bisa</button></div>`;
+  else if (C.phase === 'b') body = `<p class="qline">Syarat apa yang tidak dipenuhi?</p><div class="syr">${SY.map(s => `<button type="button" class="btn" data-act="cr" data-c="${s.c}"><span class="ar" lang="ar">${s.ar}</span><span>${s.id}</span></button>`).join('')}</div>`;
+  else {
+    const why = c.ok ? `<b>${C.right ? 'Benar, bisa.' : 'Sebenarnya bisa.'}</b>${A(c.v)} memenuhi semua syarat, sehingga menjadi ${A(c.form)}.`
+      : `<b>${C.msg}</b>Syarat yang gagal: ${syNames(c)}${c.note ? ` (${wrapAr(c.note)})` : ''}.${c.alt ? ` Pengganti: ${A('أَشَدّ')} / ${A('أَكْثَر')} + mashdar, misalnya ${A(c.alt)} (contoh dari modul).` : (c.why.includes('ts') || c.why.includes('wc') ? ` Pengganti yang dianjurkan buku hlm. 13: ${A('أَشَدّ')} / ${A('أَكْثَر')} + mashdar.` : '')}`;
+    body = `<div class="fbx ${C.right ? 'ok' : 'no'}">${why}</div><button type="button" class="btn go" data-act="cnext">${C.i === C.order.length - 1 ? 'Lihat hasil' : 'Kartu berikutnya'}</button>`;
+  }
+  return `<h3 style="margin-bottom:6px">Kartu fi'il</h3><div class="scoreline"><span>Kartu ${C.i + 1} dari ${C.order.length}</span><span>Benar ${C.ok} dari ${C.n}</span></div><div class="verb" lang="ar" dir="rtl">${c.v}</div>${body}
+    <p class="note" style="margin:12px 0 0">Daftar syarat mengikuti tabel modul I.2. Fi'il pada kartu diambil dari tabel itu dan dari kunci remedial O.1.</p>`;
+}
+
+/* ---------- kerangka lab ---------- */
+function renderLab() {
+  $('lab-tabs').innerHTML = LABS.map(l => `<button type="button" role="tab" aria-selected="${l.id === L.tab}" data-tab="${l.id}">${l.t}</button>`).join('');
+  $('lab-body').innerHTML = L.tab === 'peta' ? petaHTML() : L.tab === 'pohon' ? pohonHTML() : cardsHTML();
+}
+function openLab(tool) { L.tab = tool || L.tab; showView('lab'); renderLab(); }
+function labInit() {
+  $('labgrid').innerHTML = LABS.map(l => `<button type="button" class="tool ${l.col}" data-tool="${l.id}"><span class="ic" aria-hidden="true">${l.ic}</span><span class="an" lang="ar">${l.ar}</span><span class="id">${l.t}</span><p>${l.d}</p></button>`).join('');
+  $('labgrid').addEventListener('click', e => { const b = e.target.closest('.tool'); if (b) openLab(b.dataset.tool); });
+  $('lab-back').addEventListener('click', goHome);
+  $('lab-tabs').addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (b) { L.tab = b.dataset.tab; renderLab(); } });
+  $('lab-body').addEventListener('click', e => {
+    const b = e.target.closest('[data-act]'); if (!b) return;
+    const act = b.dataset.act, T = L.tree, D = L.drill, C = L.cards;
+    if (act === 'focus') { L.focus = b.dataset.k || null; renderLab(); return; }
+    if (act === 'yes') { T.res = TREE[T.step].k; renderLab(); return; }
+    if (act === 'no') { if (T.step >= 3) T.res = 0; else T.step++; renderLab(); return; }
+    if (act === 'treset') { L.tree = { step: 0, res: null }; renderLab(); return; }
+    if (act === 'dpick') { D.pick = +b.dataset.k; D.n++; if (D.pick === EXS[D.order[D.i]].k) D.ok++; renderLab(); const nx = $('lab-body').querySelector('[data-act="dnext"]'); if (nx) nx.focus({ preventScroll: true }); return; }
+    if (act === 'dnext') { D.i++; D.pick = null; renderLab(); return; }
+    if (act === 'dnew') { newDrill(); renderLab(); return; }
+    if (act === 'cy' || act === 'cn') {
+      const c = CARDS[C.order[C.i]];
+      if (act === 'cn' && !c.ok) { C.phase = 'b'; renderLab(); return; }
+      C.n++; C.phase = 'f';
+      if (c.ok) { C.right = act === 'cy'; if (C.right) C.ok++; C.msg = ''; }
+      else { C.right = false; C.msg = 'Belum tepat, fi\'il ini tidak bisa.'; }
+      renderLab(); const nx = $('lab-body').querySelector('[data-act="cnext"]'); if (nx) nx.focus({ preventScroll: true }); return;
+    }
+    if (act === 'cr') {
+      const c = CARDS[C.order[C.i]]; C.n++; C.phase = 'f'; C.right = c.why.includes(b.dataset.c);
+      if (C.right) C.ok++;
+      C.msg = C.right ? 'Benar, tidak bisa.' : 'Keputusanmu benar (tidak bisa), tetapi syarat yang kamu pilih belum tepat.';
+      renderLab(); const nx = $('lab-body').querySelector('[data-act="cnext"]'); if (nx) nx.focus({ preventScroll: true }); return;
+    }
+    if (act === 'cnext') { C.i++; C.phase = 'a'; C.right = null; renderLab(); return; }
+    if (act === 'cnew') { newCards(); renderLab(); return; }
+  });
+  $('lab-body').addEventListener('change', e => { if (e.target.dataset.act === 'mk') { L.mk = e.target.checked; renderLab(); } });
+}
+/* ===================== LOGIC ===================== */
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const tryDo = (f, d) => { try { return f(); } catch (e) { return d; } };
+const shuffle = a => { const r = a.slice(); for (let i = r.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [r[i], r[j]] = [r[j], r[i]]; } return r; };
+const reduce = () => tryDo(() => matchMedia('(prefers-reduced-motion: reduce)').matches, false);
+const goTo = (el, smooth) => el && el.scrollIntoView({ block: 'start', behavior: smooth && !reduce() ? 'smooth' : 'auto' });
+const AL = ['أ', 'ب', 'ج', 'د', 'هـ'];
+const SECS = ['pg', 'pgk', 'bs'];
+const TOT = QS.length;
+
+let S = { sec: null, i: 0, items: { pg: [], pgk: [], bs: [] }, ans: {}, res: {}, view: 'home', mix: true, tp: false, tpPar: 0 };
+
+/* ---------- build / state ---------- */
+function build(sec, reorder) {
+  let qs = QS.filter(q => q.sec === sec);
+  if (reorder) qs = shuffle(qs);
+  S.items[sec] = qs.map(q => {
+    let opts;
+    if (q.sec === 'bs') opts = [{ k: 'T', ar: 'صَحِيحٌ', id: 'Benar' }, { k: 'F', ar: 'خَطَأٌ', id: 'Salah' }];
+    else { const base = S.mix ? shuffle(q.opts) : q.opts.slice(); opts = base.map((o, idx) => Object.assign({}, o, { L: AL[idx] })); }
+    return { q, opts };
+  });
+}
+const itemsOf = sec => S.items[sec];
+const isChecked = q => Object.prototype.hasOwnProperty.call(S.res, q.id);
+const need = q => q.sec === 'pgk' ? q.ans.length : 1;
+/* Pedoman skor modul J.5: PG/BS benar 1; PGK semua benar 1, sebagian benar tanpa pilihan salah 0,5, ada pilihan salah atau kosong 0 */
+const scoreOf = q => {
+  const a = S.ans[q.id] || [], key = q.ans;
+  if (!a.length) return 0;
+  if (q.sec !== 'pgk') return a.slice().sort().join(',') === key.slice().sort().join(',') ? 1 : 0;
+  if (a.some(k => !key.includes(k))) return 0;
+  return a.length === key.length ? 1 : 0.5;
+};
+const secStats = sec => { let n = 0, ok = 0; QS.forEach(q => { if (q.sec === sec && isChecked(q)) { n++; ok += S.res[q.id]; } }); return { n, ok }; };
+const allStats = () => { let n = 0, ok = 0; QS.forEach(q => { if (isChecked(q)) { n++; ok += S.res[q.id]; } }); return { n, ok }; };
+
+/* ---------- views ---------- */
+function showView(v) {
+  S.view = v;
+  $('v-home').hidden = v !== 'home'; $('v-quiz').hidden = v !== 'quiz'; $('v-res').hidden = v !== 'res'; $('v-lab').hidden = v !== 'lab';
+  $('b-home').hidden = v === 'home';
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+function paintScore() { const a = allStats(); $('b-sc').textContent = `${fmt(a.ok)}/${TOT}`; }
+
+/* ---------- home ---------- */
+function drawGates() {
+  $('gates').innerHTML = SECS.map(s => {
+    const d = SECDEF[s], st = secStats(s), pct = Math.round(st.n / 20 * 100);
+    return `<button type="button" class="gate ${d.col}" data-s="${s}" aria-label="Buka ${d.id}, ${st.n} dari 20 soal sudah dikerjakan">
+      <div class="hd"><span class="gl">${d.node}</span><span class="note" style="font-weight:700">20 soal</span></div>
+      <div class="an" lang="ar">${d.n}</div>
+      <div class="at" lang="ar">${d.t}</div>
+      <div class="id">${d.id}</div>
+      <div class="mini" aria-hidden="true"><i style="width:${pct}%"></i></div>
+      <div class="st"><span>${st.n ? `Dikerjakan ${st.n}/20` : 'Belum dimulai'}</span><span>${st.n ? `Skor ${fmt(st.ok)}` : 'Mulai'}</span></div>
+    </button>`;
+  }).join('');
+}
+
+/* ---------- panel teks bacaan ---------- */
+function buildTP() {
+  $('q-tp').innerHTML = `<div class="tph"><button type="button" class="pill" id="tp-close">Tutup</button><span class="ar" lang="ar">${TXT.title}</span></div>
+    <div class="tpb" id="tp-body">${TXT.paras.map((p, i) => `<div class="pr" data-p="${i + 1}"><span class="n" aria-label="Paragraf ${i + 1}">${i + 1}</span><div class="ar" lang="ar" dir="rtl">${p}</div></div>`).join('')}
+    <p class="tpn">Teks mengikuti bagian H.1 modul (buku hlm. 15–16) dengan enam perbaikan salah cetak yang dicatat pada bagian P.1 modul.</p></div>`;
+  $('tp-close').addEventListener('click', () => toggleTP(false));
+}
+function toggleTP(open, par) {
+  S.tp = open === undefined ? !S.tp : open;
+  if (par !== undefined) S.tpPar = par;
+  $('q-tp').hidden = !S.tp; $('q-text').setAttribute('aria-pressed', String(S.tp));
+  paintTPHl();
+  if (S.tp) { const t = $('q-tp'); const hl = S.tpPar && $('q-tp').querySelector(`.pr[data-p="${S.tpPar}"]`); if (hl) { const b = $('tp-body'); b.scrollTop = Math.max(0, hl.offsetTop - b.offsetTop - 4); } else $('tp-body').scrollTop = 0; goTo(t, true); }
+}
+function paintTPHl() { $('q-tp').querySelectorAll('.pr').forEach(el => el.classList.toggle('hl', S.tp && +el.dataset.p === S.tpPar)); }
+
+/* ---------- quiz ---------- */
+function openSec(sec, idx) {
+  S.sec = sec;
+  if (!S.items[sec].length) build(sec, false);
+  if (typeof idx === 'number') S.i = idx;
+  else { const f = S.items[sec].findIndex(x => !isChecked(x.q)); S.i = f < 0 ? 0 : f; }
+  $('q-confirm').innerHTML = '';
+  showView('quiz'); renderQ(false);
+}
+function renderQ(scroll) {
+  const sec = S.sec, list = itemsOf(sec), it = list[S.i], q = it.q, n = S.i + 1, d = SECDEF[sec];
+  const done = isChecked(q), multi = q.sec === 'pgk', N = need(q), sel = S.ans[q.id] || [];
+  $('q-badge').textContent = d.node; $('q-badge').className = 'sec-badge ' + d.col;
+  $('q-ar').textContent = d.n + ' · ' + d.t;
+  const tp = TOPIC[q.topic];
+  const inst = q.sec === 'pgk' ? NUMAR[N] : d.inst;
+  let opts;
+  if (q.sec === 'bs') {
+    opts = `<div class="tf" role="radiogroup" aria-label="Pilihan jawaban soal ${n}">${it.opts.map(o => `<button type="button" class="opt radio" role="radio" aria-checked="${sel.includes(o.k)}" data-k="${o.k}"${done ? ' disabled' : ''}><span class="ot" lang="ar">${o.ar}</span><small>${o.id}</small></button>`).join('')}</div>`;
+  } else {
+    opts = `<div class="opts" role="${multi ? 'group' : 'radiogroup'}" aria-label="Pilihan jawaban soal ${n}">${it.opts.map(o => `<button type="button" class="opt ${multi ? 'check' : 'radio'}" role="${multi ? 'checkbox' : 'radio'}" aria-checked="${sel.includes(o.k)}" data-k="${o.k}"${done ? ' disabled' : ''}><span class="mk" lang="ar">${o.L}</span><span class="ot" lang="ar" dir="rtl">${o.ar}</span></button>`).join('')}</div>`;
+  }
+  const stim = q.par ? `<div class="stim"><div class="lbl"><span class="ar" lang="ar" style="font-size:15px;line-height:1.4">النَّصُّ · الْفِقْرَةُ ${PARN[q.par - 1]}</span></div><div class="ar" lang="ar" dir="rtl">${TXT.paras[q.par - 1]}</div></div>` : '';
+  const ref = (q.par || q.txt) ? `<div class="acts" style="margin:0 0 8px"><button type="button" class="pill" data-tp="${q.par || 0}">Buka teks lengkap</button></div>` : '';
+  $('q-card').innerHTML = `
+    <div class="qtags"><span class="tag n">${n} / 20</span><span class="tag ind"><b>${tp[2]}</b><span class="ar" lang="ar">${tp[0]}</span><span>${tp[1]}</span></span><span class="tag" title="${LV[q.lvl][1]}"><span class="ar" lang="ar">${LV[q.lvl][0]}</span><span>L${q.lvl}</span></span></div>
+    ${stim}${ref}
+    <div class="qtext" lang="ar" dir="rtl">${q.q}</div>
+    <div><span class="inst" lang="ar">${inst}</span></div>
+    ${opts}
+    <div class="warn" id="warn" aria-live="polite"></div>
+    <div class="acts"${done ? ' hidden' : ''}><button type="button" class="btn pri" id="q-check"><span class="ar" lang="ar" style="font-size:20px;line-height:1.5">تَحَقَّقْ</span><span>Cek jawaban</span></button><span class="cnt" id="q-cnt"></span></div>
+    ${multi && !done ? '<p class="note" style="margin:8px 0 0">Skor soal ini: semua benar 1, sebagian benar tanpa pilihan salah 0,5, ada pilihan salah 0 (pedoman modul J.5).</p>' : ''}`;
+  paintSel(); paintMeta();
+  if (done) markOpts(it);
+  $('q-fb').innerHTML = done ? fbHTML(it) : '';
+  $('q-prev').disabled = S.i === 0;
+  const last = S.i === list.length - 1;
+  $('q-next').textContent = last ? 'Lihat skor' : 'Berikutnya';
+  if (S.tp) { S.tpPar = q.par || 0; paintTPHl(); }
+  if (scroll) goTo($('qtop'), true);
+}
+function paintSel() {
+  const it = itemsOf(S.sec)[S.i], q = it.q, sel = S.ans[q.id] || [], N = need(q);
+  $('q-card').querySelectorAll('.opt').forEach(b => b.setAttribute('aria-checked', String(sel.includes(b.dataset.k))));
+  const chk = $('q-check'); if (chk) chk.disabled = sel.length < 1;
+  const c = $('q-cnt'); if (c) c.textContent = isChecked(q) ? '' : (q.sec === 'pgk' ? `Terpilih ${sel.length} dari ${N}` : (sel.length ? 'Siap dicek' : 'Pilih satu jawaban'));
+}
+function paintMeta() {
+  const list = itemsOf(S.sec), n = list.filter(x => isChecked(x.q)).length;
+  $('q-bar').style.width = (n / list.length * 100) + '%'; $('q-pb').setAttribute('aria-valuenow', String(n));
+  $('q-map').innerHTML = list.map((x, idx) => {
+    const r = S.res[x.q.id];
+    const st = isChecked(x.q) ? (r === 1 ? 'ok' : r > 0 ? 'part' : 'no') : ((S.ans[x.q.id] || []).length ? 'pick' : '');
+    const lab = isChecked(x.q) ? (r === 1 ? 'benar' : r > 0 ? 'sebagian benar' : 'salah') : 'belum dicek';
+    return `<button type="button" class="mb" data-i="${idx}" data-s="${st}"${idx === S.i ? ' aria-current="true"' : ''} aria-label="Soal ${idx + 1}, ${lab}">${idx + 1}</button>`;
+  }).join('');
+  paintScore();
+}
+function keyLines(it) {
+  const q = it.q;
+  if (q.sec === 'bs') return `<span class="ar" lang="ar">${q.ans[0] === 'T' ? 'صَحِيحٌ' : 'خَطَأٌ'}</span>`;
+  return it.opts.filter(o => q.ans.includes(o.k)).map(o => `<span class="ar" lang="ar">${o.L}) ${o.ar}</span>`).join('');
+}
+function fbHTML(it) {
+  const q = it.q, sc = S.res[q.id], cls = sc === 1 ? 'ok' : sc > 0 ? 'part' : 'no';
+  const ar = sc === 1 ? 'أَحْسَنْتَ! إِجَابَةٌ صَحِيحَةٌ' : sc > 0 ? 'إِجَابَةٌ صَحِيحَةٌ جُزْئِيًّا' : 'إِجَابَةٌ غَيْرُ صَحِيحَةٍ';
+  const id = sc === 1 ? 'Benar · skor 1' : sc > 0 ? `Sebagian benar · skor ${fmt(sc)}` : 'Belum tepat · skor 0';
+  const extra = sc > 0 && sc < 1 ? `<p class="note" style="margin:0 0 8px">Semua pilihanmu benar, tetapi baru ${(S.ans[q.id] || []).length} dari ${q.ans.length} jawaban.</p>` : '';
+  return `<div class="fb ${cls}"><div class="fh"><span class="ar" lang="ar">${ar}</span><small>${id}</small></div>
+    <div class="fb-b">${extra}<div class="key"><div class="lbl">Kunci jawaban</div>${keyLines(it)}</div><h4>Penjelasan</h4><div class="why">${q.why}</div></div></div>`;
+}
+function markOpts(it) {
+  const q = it.q;
+  $('q-card').querySelectorAll('.opt').forEach(b => {
+    const k = b.dataset.k, picked = (S.ans[q.id] || []).includes(k), right = q.ans.includes(k);
+    b.disabled = true; b.classList.remove('ok', 'no', 'miss');
+    if (right && picked) { b.classList.add('ok'); b.insertAdjacentHTML('beforeend', '<span class="res">BENAR</span>'); }
+    else if (!right && picked) { b.classList.add('no'); b.insertAdjacentHTML('beforeend', '<span class="res">SALAH</span>'); }
+    else if (right) { b.classList.add('miss'); b.insertAdjacentHTML('beforeend', '<span class="res">KUNCI</span>'); }
+  });
+}
+function doCheck() {
+  const it = itemsOf(S.sec)[S.i], q = it.q;
+  if (!(S.ans[q.id] || []).length || isChecked(q)) return;
+  S.res[q.id] = scoreOf(q);
+  markOpts(it); $('q-check').parentNode.hidden = true; $('q-cnt').textContent = '';
+  $('q-fb').innerHTML = fbHTML(it); paintMeta();
+  const nx = $('q-next'); if (nx) nx.focus({ preventScroll: true });
+  goTo($('q-fb'), true);
+}
+function goQ(i) { $('q-confirm').innerHTML = ''; S.i = Math.max(0, Math.min(itemsOf(S.sec).length - 1, i)); renderQ(true); }
+function bindQuiz() {
+  $('q-card').addEventListener('click', e => {
+    if (e.target.closest('#q-check')) { doCheck(); return; }
+    const tpb = e.target.closest('[data-tp]'); if (tpb) { toggleTP(true, +tpb.dataset.tp); return; }
+    const b = e.target.closest('.opt'); if (!b || b.disabled) return;
+    const q = itemsOf(S.sec)[S.i].q, k = b.dataset.k, cur = (S.ans[q.id] || []).slice(), warn = $('warn'), N = need(q);
+    warn.textContent = '';
+    if (q.sec !== 'pgk') S.ans[q.id] = [k];
+    else if (cur.includes(k)) S.ans[q.id] = cur.filter(x => x !== k);
+    else if (cur.length >= N) { warn.textContent = `Maksimal ${N} jawaban. Batalkan salah satu pilihan dulu.`; return; }
+    else { cur.push(k); S.ans[q.id] = cur; }
+    paintSel(); paintMeta();
+  });
+  $('q-text').addEventListener('click', () => toggleTP(undefined, 0));
+  $('q-prev').addEventListener('click', () => goQ(S.i - 1));
+  $('q-next').addEventListener('click', () => { if (S.i === itemsOf(S.sec).length - 1) showResult(); else goQ(S.i + 1); });
+  $('q-map').addEventListener('click', e => { const b = e.target.closest('.mb'); if (b) goQ(+b.dataset.i); });
+  $('q-reset').addEventListener('click', () => {
+    $('q-confirm').innerHTML = `<div class="card" style="margin:0 0 12px;padding:12px"><p style="margin:0 0 8px"><b>Ulangi bagian ini?</b> Jawaban dan skor bagian ini dihapus${S.mix ? ', urutan soal serta pilihan jawaban diacak ulang' : ''}.</p><div class="acts"><button type="button" class="btn pri" id="c-yes">Ya, ulangi</button><button type="button" class="btn" id="c-no">Batal</button></div></div>`;
+    $('c-no').focus();
+    $('c-yes').addEventListener('click', () => resetSec(S.sec));
+    $('c-no').addEventListener('click', () => { $('q-confirm').innerHTML = ''; });
+  });
+}
+function resetSec(sec) {
+  QS.filter(q => q.sec === sec).forEach(q => { delete S.ans[q.id]; delete S.res[q.id]; });
+  build(sec, S.mix); S.sec = sec; S.i = 0; $('q-confirm').innerHTML = '';
+  if (S.view === 'quiz') renderQ(false); else { drawGates(); paintScore(); openSec(sec, 0); }
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+/* ---------- result ---------- */
+function rankOf(p) {
+  if (p >= 90) return { ar: 'مُمْتَازٌ', id: 'Istimewa', msg: 'Pemahamanmu kuat. Kerjakan ulang bagian yang tadi salah dengan urutan acak untuk memastikan.' };
+  if (p >= 75) return { ar: 'جَيِّدٌ جِدًّا', id: 'Tuntas', msg: 'Skormu sudah di atas batas usulan modul. Baca penjelasan soal yang salah, lalu ulangi bagian itu.' };
+  if (p >= 60) return { ar: 'مَقْبُولٌ', id: 'Perlu remedial', msg: 'Dasarnya sudah ada. Fokus pada indikator yang batangnya berwarna merah dan buka lab belajar.' };
+  return { ar: 'مُرَاجَعَةٌ', id: 'Perlu pendampingan', msg: 'Baca ulang teks dan materi isim tafdhil di lab belajar, lalu latihan lagi mulai dari Node A.' };
+}
+function topicStats() {
+  const T = {}, V = { 1: { r: 0, n: 0 }, 2: { r: 0, n: 0 }, 3: { r: 0, n: 0 } };
+  QS.forEach(q => { if (!isChecked(q)) return; const t = (T[q.topic] = T[q.topic] || { r: 0, n: 0 }); t.n++; t.r += S.res[q.id]; V[q.lvl].n++; V[q.lvl].r += S.res[q.id]; });
+  return { T, V };
+}
+function summaryText(a, score, rk, T) {
+  const L = ['Hasil Latihan Asesmen Sumatif · Kelas XII · Bab 1 Teknologi Informasi dan Komunikasi', `Nilai: ${fmt(score)}/100 (${rk.id})`, `Skor: ${fmt(a.ok)}/${TOT} · dikerjakan ${a.n}/${TOT}`];
+  SECS.forEach(s => { const st = secStats(s); L.push(`${SECDEF[s].id}: ${fmt(st.ok)}/20 (dikerjakan ${st.n})`); });
+  L.push('Per indikator: ' + Object.keys(TOPIC).filter(t => T[t]).map(t => `${TOPIC[t][2]} ${fmt(T[t].r)}/${T[t].n}`).join('; '));
+  L.push('Skor memakai pedoman modul J.5 (PGK sebagian benar 0,5). Batas 75 dan 60 adalah usulan penyusun modul; KKTP ditetapkan madrasah.');
+  return L.join('\n');
+}
+function showResult() {
+  const a = allStats(), score = Math.round(a.ok / TOT * 1000) / 10, rk = rankOf(score), { T, V } = topicStats(), C = 2 * Math.PI * 62;
+  const tkeys = Object.keys(TOPIC).filter(t => T[t]);
+  const weak = tkeys.filter(t => T[t].n >= 2 && T[t].r / T[t].n < 0.75).sort((x, y) => T[x].r / T[x].n - T[y].r / T[y].n).slice(0, 2);
+  const bars = tkeys.map(t => { const o = T[t], p = Math.round(o.r / o.n * 100); return `<div class="tb${p < 60 ? ' low' : ''}"><div class="nm"><span class="ar" lang="ar">${TOPIC[t][0]}</span><span>${TOPIC[t][2]} · ${TOPIC[t][1]}</span></div><span class="v">${fmt(o.r)}/${o.n}</span><div class="tr"><i style="width:${p}%"></i></div></div>`; }).join('');
+  const cards = SECS.map(s => { const st = secStats(s), d = SECDEF[s]; return `<div class="sc"><span class="ar" lang="ar">${d.n}</span><span class="note">${d.id}</span><div><b>${fmt(st.ok)}</b><small> / 20 skor</small></div><div class="note">Dikerjakan ${st.n}/20</div><div class="acts" style="margin-top:8px"><button type="button" class="pill" data-open="${s}">${st.n ? 'Buka' : 'Mulai'}</button>${st.n && st.ok < st.n ? `<button type="button" class="pill" data-wrong="${s}">Lihat yang belum penuh</button>` : ''}</div></div>`; }).join('');
+  const lvs = [1, 2, 3].map(l => `<div class="lv"><span class="ar" lang="ar">${LV[l][0]}</span><b>${V[l].n ? fmt(V[l].r) + '/' + V[l].n : '-'}</b><small>${LV[l][1]}</small></div>`).join('');
+  const kk = a.n === TOT ? (score >= 75 ? '<span class="kk go">Di atas batas tuntas usulan modul (75)</span>' : score >= 60 ? '<span class="kk mid">Rentang remedial usulan modul (60–74)</span>' : '<span class="kk low">Di bawah 60: perlu pendampingan ulang materi</span>') : '';
+  const prio = weak.length ? `<div class="prio"><h4>Prioritas belajar</h4>${weak.map(t => `<p><b>${TOPIC[t][2]}</b> ${wrapAr(TOPIC[t][0]).replace(/^/, '')} · ${TOPIC[t][1]} (${Math.round(T[t].r / T[t].n * 100)}%). ${wrapAr(TIPS[t])}</p><div class="acts"><button type="button" class="pill" data-lab="${LABMAP[t]}">Buka ${LABNAME[LABMAP[t]]}</button></div>`).join('')}</div>` : '';
+  $('v-res').innerHTML = `
+    <div class="card rcard">
+      <div class="ring"><svg viewBox="0 0 150 150" aria-hidden="true"><circle class="bg" cx="75" cy="75" r="62" fill="none" stroke-width="14"/><circle class="fg" id="rfg" cx="75" cy="75" r="62" fill="none" stroke-width="14" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${C.toFixed(1)}"/></svg><div class="num"><span>${fmt(score)}<small>dari 100</small></span></div></div>
+      <div>
+        <h2>Ringkasan skor</h2>
+        <div class="rank"><span class="ar" lang="ar">${rk.ar}</span><b>${rk.id}</b></div>
+        <p style="margin:6px 0 0">${a.n ? rk.msg : 'Belum ada soal yang dicek. Mulailah dari salah satu node.'}</p>
+        ${kk ? `<div>${kk}</div>` : ''}
+        ${a.n && a.n < TOT ? `<p class="note" style="margin:6px 0 0">Baru ${a.n} dari ${TOT} soal dikerjakan, jadi nilai akan naik seiring kamu menyelesaikan bagian lain.</p>` : ''}
+      </div>
+    </div>
+    <div class="sgrid">${cards}</div>
+    <div class="card"><h3 style="margin-bottom:10px">Per indikator</h3><div class="bars">${bars || '<p class="note" style="margin:0">Belum ada data indikator.</p>'}</div>
+      <h3 style="margin:16px 0 8px;font-size:16px">Per tingkat kesulitan</h3><div class="lvgrid">${lvs}</div>
+      ${prio}
+      <p class="note" style="margin:12px 0 0">Nilai = jumlah skor ÷ 60 × 100, sesuai pedoman modul. Batas 75 dan 60 adalah usulan penyusun modul; kriteria ketuntasan resmi ditetapkan madrasah. Level soal adalah perkiraan penyusun.</p></div>
+    <div class="racts">
+      <button type="button" class="btn pri" id="r-copy">Salin ringkasan</button>
+      <button type="button" class="btn" id="r-home">Kembali ke node</button>
+    </div>
+    <div id="copywrap" aria-live="polite"></div>`;
+  showView('res');
+  requestAnimationFrame(() => requestAnimationFrame(() => { const fg = $('rfg'); if (fg) fg.style.strokeDashoffset = (C * (1 - score / 100)).toFixed(1); }));
+  $('r-copy').addEventListener('click', () => copySummary(summaryText(a, score, rk, T)));
+  $('r-home').addEventListener('click', goHome);
+}
+function copySummary(txt) {
+  const btn = $('r-copy'), wrap = $('copywrap');
+  const manual = () => { wrap.innerHTML = '<textarea class="copybox" id="copybox" readonly aria-label="Ringkasan hasil, salin manual"></textarea>'; const ta = $('copybox'); ta.value = txt; ta.focus(); ta.select(); };
+  const okay = () => { btn.textContent = 'Tersalin'; wrap.innerHTML = ''; setTimeout(() => { btn.textContent = 'Salin ringkasan'; }, 2000); };
+  try { if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(okay, manual); else manual(); } catch (e) { manual(); }
+}
+function goHome() { drawGates(); paintScore(); showView('home'); }
+
+/* ---------- theme + init ---------- */
+function themeInit() {
+  const saved = tryDo(() => localStorage.getItem('xii-tik-theme'), null);
+  if (saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+  $('themebtn').addEventListener('click', () => {
+    const cur = document.documentElement.getAttribute('data-theme') || (tryDo(() => matchMedia('(prefers-color-scheme: dark)').matches, false) ? 'dark' : 'light');
+    const nx = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', nx); tryDo(() => localStorage.setItem('xii-tik-theme', nx), 0);
+  });
+}
+function init() {
+  SECS.forEach(s => build(s, false));
+  drawGates(); paintScore(); bindQuiz(); themeInit(); buildTP(); labInit();
+  $('gates').addEventListener('click', e => { const b = e.target.closest('.gate'); if (b) openSec(b.dataset.s); });
+  $('mixopt').addEventListener('change', e => {
+    S.mix = e.target.checked;
+    SECS.forEach(s => { const touched = QS.some(q => q.sec === s && (isChecked(q) || (S.ans[q.id] || []).length)); if (!touched) build(s, false); });
+  });
+  $('b-home').addEventListener('click', goHome);
+  $('b-res').addEventListener('click', showResult);
+  $('v-res').addEventListener('click', e => {
+    const o = e.target.closest('[data-open]'), w = e.target.closest('[data-wrong]'), l = e.target.closest('[data-lab]');
+    if (o) openSec(o.dataset.open);
+    else if (w) { const s = w.dataset.wrong, idx = itemsOf(s).findIndex(x => isChecked(x.q) && S.res[x.q.id] < 1); openSec(s, Math.max(0, idx)); }
+    else if (l) openLab(l.dataset.lab);
+  });
+}
+init();
+</script>
+</body>
+</html>
